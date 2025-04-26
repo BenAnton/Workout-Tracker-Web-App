@@ -1,0 +1,27 @@
+.Create-Form-Cont {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  margin-inline: auto;
+  margin-top: 5%;
+  gap: 25px;
+  text-align: center;
+}
+
+.Create-Inputs {
+  font-size: 1.5rem;
+}
+
+.Create-Button {
+  font-size: 2rem;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border: none;
+}
+
+.Create-Button:hover {
+  cursor: pointer;
+  color: var(--accent-color);
+  background-color: var(--white-color);
+}

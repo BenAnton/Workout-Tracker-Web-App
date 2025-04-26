@@ -1,0 +1,63 @@
+.Exercise-Filter-Cont {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--secondary-color);
+}
+
+.Filter-Control {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.Search-Input,
+.Filter-Drop {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--secondary-color);
+  font-size: 16px;
+}
+
+.Search-Input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.Filter-Drop {
+  min-width: 150px;
+}
+
+.Results-Count {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: var(--alt-color);
+  margin-inline: 10px;
+}
+
+.Exercise-Grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: auto;
+  padding: 25px;
+  padding-bottom: 25px;
+  gap: 5px;
+  row-gap: 15px;
+  background-color: var(--secondary-color);
+  justify-items: center;
+}
+
+.No-Results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: var(--alt-color);
+}
+
+@media (max-width: 550px) {
+  .Filter-Control {
+    flex-direction: column;
+  }
+}

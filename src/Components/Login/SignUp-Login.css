@@ -1,0 +1,118 @@
+.Signup-Flex-Cont {
+  align-items: center;
+  margin-block: auto;
+  max-width: 1600px;
+  display: flex;
+  background-color: var(--secondary-color);
+  border-top: 5px solid var(--accent-color);
+  border-bottom: 5px solid var(--accent-color);
+}
+
+.Workout-Img {
+  width: 50%;
+  border-right: 5px solid var(--accent-color);
+}
+
+.Signup-Cont {
+  width: 100%;
+  height: 50%;
+  background-color: var(--secondary-color);
+  flex-grow: 1;
+}
+
+.Signup-Header {
+  height: 30%;
+}
+
+.Stack-Side-By-Side {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.Signup-Title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  margin-top: 50px;
+  border: none;
+  background-color: var(--secondary-color);
+}
+
+.Signup-Select {
+  width: auto;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  margin-top: 15px;
+  position: relative;
+  padding-bottom: 7px;
+  color: var(--white-color);
+}
+
+.Signup-Select:hover {
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+.Signup-Select.active {
+  color: var(--accent-color);
+}
+
+.Signup-Select::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 7px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--accent-color);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.Signup-Select.active:after {
+  width: 100%;
+}
+
+@media (min-width: 551px) and (max-width: 799px) {
+  .Workout-Img {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+  }
+
+  .Signup-Cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: fit-content;
+    z-index: 1;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+  }
+
+  .Signup-Flex-Cont {
+    position: relative;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  .Workout-Img {
+    display: none;
+  }
+
+  .Signup-Cont {
+    width: 100%;
+    margin-block: 5%;
+    border: none;
+  }
+
+  .Signup-Title {
+    margin-top: 0;
+  }
+}

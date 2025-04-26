@@ -1,0 +1,37 @@
+.Hero-Section-Cont {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.Hero-Image {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  overflow: hidden;
+}
+
+.Hero-Title {
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.Hero-Para {
+  color: var(--white-color);
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.Hero-Text-Cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}

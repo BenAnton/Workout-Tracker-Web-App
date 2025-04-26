@@ -1,0 +1,17 @@
+.Testimonials-Grid-Cont {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: auto;
+  text-align: center;
+  gap: 20px;
+  height: fit-content;
+  padding: 2%;
+  justify-content: center;
+}
+
+@media (max-width: 550px) {
+  .Testimonials-Grid-Cont {
+    padding-inline: 35px;
+  }
+}

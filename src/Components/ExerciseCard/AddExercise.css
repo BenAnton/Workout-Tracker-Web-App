@@ -1,0 +1,143 @@
+.Add-Exercise-Form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--secondary-color);
+  padding: 3%;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-inline: 30px;
+  padding-inline: 75px;
+  border: 2px solid var(--accent-color);
+}
+
+.Add-Exercise-Form > input {
+  margin-bottom: 5px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.Add-Exercise-Form > select {
+  margin-bottom: 5px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.Add-Exercise-Form > label {
+  color: var(--accent-color);
+}
+
+.Add-Exercise-Button {
+  font-size: 1.3rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin: 5px;
+  margin-inline: auto;
+}
+
+.Add-Exercise-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+
+  cursor: pointer;
+}
+
+.Add-Exercise-Button-Cont {
+  display: flex;
+  margin-top: 25px;
+}
+
+.Add-Exercise-Textarea {
+  height: 100px;
+  border-radius: 5px;
+}
+
+.Add-Exercise-New-Heading {
+  color: var(--accent-color);
+  font-weight: 900;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.Add-Exercise-Horizontal {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#select-muscles {
+  flex-grow: 1;
+  margin-bottom: 5px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.Add-Exercise-Muscle-Button {
+  font-size: 1.3rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin: 5px;
+  margin-inline: auto;
+}
+
+.Add-Exercise-Muscle-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  cursor: pointer;
+}
+
+.no-muscles {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.muscle-tag {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.remove-muscle {
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  margin-left: 5px;
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.remove-muscle:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  border: none;
+  cursor: pointer;
+}

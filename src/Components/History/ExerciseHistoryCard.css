@@ -1,0 +1,36 @@
+.Exercise-Card-Flex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-block: 25px;
+}
+
+.Exercise-History-Card {
+  background-color: var(--white-color);
+  width: 75%;
+  margin-inline: auto;
+  border-radius: 15px;
+  padding: 25px;
+  padding-inline: 50px;
+  border: 2px solid var(--accent-color);
+}
+
+.Exercise-History-Flex {
+  display: flex;
+}
+
+.Exercise-History-Horizontal-Flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+td {
+  padding-inline: 45px;
+  padding-block: 5px;
+}
+
+table {
+  width: 75%;
+  margin-inline: auto;
+}

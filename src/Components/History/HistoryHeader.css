@@ -1,0 +1,11 @@
+.History-Header-Flex {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.History-Header-Title {
+  color: var(--white-color);
+}
