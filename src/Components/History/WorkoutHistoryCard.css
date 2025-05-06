@@ -1,12 +1,4 @@
-.History-Header-Flex {
-  display: flex;
-  gap: 150px;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 900;
-}
-
-.History-Header-Button {
+.Collapse-Button {
   font-size: 1.1rem;
   width: auto;
   padding: 20px;
@@ -20,15 +12,11 @@
   background-color: var(--accent-color);
   border: none;
   font-weight: 900;
-
   margin-top: 15px;
 }
 
-.History-Header-Button:hover {
+.Collapse-Button:hover {
   cursor: pointer;
-}
-
-.Active-History-Header-Button {
-  color: var(--accent-color);
   background-color: var(--white-color);
+  color: var(--accent-color);
 }

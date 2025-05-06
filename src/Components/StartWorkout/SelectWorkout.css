@@ -1,0 +1,56 @@
+.Select-Flex {
+  display: flex;
+  width: 90%;
+  gap: 15px;
+  margin-inline: auto;
+  margin-block: 10px;
+}
+
+.Select-Select-Input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--secondary-color);
+  font-size: 16px;
+  width: 75%;
+  text-overflow: ellipsis;
+  overflow: visible;
+}
+
+.Select-Select-Input option {
+  padding: 10px;
+  white-space: normal;
+  min-width: 100%;
+  overflow: visible;
+  text-overflow: initial;
+  font-size: 16px;
+}
+
+.Select-Button {
+  font-size: 1.3rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin: 5px;
+  margin-inline: auto;
+}
+
+.Select-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+}
+
+.Select-Option {
+  text-align: center;
+}

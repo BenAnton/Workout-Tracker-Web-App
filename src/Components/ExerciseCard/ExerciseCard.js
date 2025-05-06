@@ -38,7 +38,6 @@ function ExerciseCard({ exercise }) {
         </div>
 
         <p className="Exercise-Description">{exercise.description}</p>
-        <button className="Exercise-Button">View Exercise History</button>
       </div>
     </>
   );

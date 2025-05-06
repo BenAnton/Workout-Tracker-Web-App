@@ -1,0 +1,44 @@
+.Collapse-Button {
+  font-size: 1.1rem;
+  width: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin-top: 15px;
+}
+
+.Collapse-Button:hover {
+  cursor: pointer;
+  background-color: var(--white-color);
+  color: var(--accent-color);
+}
+
+.Exercise-History-Card {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+}
+
+.Exercise-Heading-Collapse {
+  color: var(--accent-color);
+}
+
+.CEC-Notes {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.CEC-Total-Reps {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}

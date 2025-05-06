@@ -28,9 +28,13 @@
 td {
   padding-inline: 45px;
   padding-block: 5px;
+  text-align: center;
 }
 
 table {
   width: 75%;
   margin-inline: auto;
+}
+
+.EHT-Title {
 }

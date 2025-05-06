@@ -31,6 +31,11 @@ function NavBar() {
               History
             </Link>
           </li>
+          <li>
+            <Link className="NavBar-Link" to="/Workout">
+              Workout
+            </Link>
+          </li>
         </div>
       </ul>
       <div className="Nav-Group-Right">

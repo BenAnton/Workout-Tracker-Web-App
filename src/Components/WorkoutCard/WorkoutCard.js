@@ -1,7 +1,21 @@
 import "./WorkoutCard.css";
+import "./ExerciseBreak.css";
 import MuscleWorked from "./MusclesWorked";
+import React, { useState } from "react";
+import WorkoutData from "../../Data/WorkoutData";
+import ExerciseBreak from "./ExerciseBreak";
 
 function WorkoutCard({ workout }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const ExpandCollapse = () => {
+    if (expanded) {
+      setExpanded(false);
+    } else {
+      setExpanded(true);
+    }
+  };
+
   return (
     <>
       <div className="WorkoutCard">
@@ -35,10 +49,25 @@ function WorkoutCard({ workout }) {
           </div>
         </div>
 
+        {expanded && (
+          <ul className="ExerciseBreak-Parent-Cont">
+            {workout.exercises.map((exercise, index) => (
+              <ExerciseBreak
+                index={index}
+                sets={workout.setsPerExercise}
+                reps={workout.repsPerExercise}
+                title={exercise}
+              />
+            ))}
+          </ul>
+        )}
+
         <p className="Workout-Description">{workout.description}</p>
 
         <div className="Workout-Button-Flex">
-          <button className="Workout-Button">View Workout</button>
+          <button onClick={ExpandCollapse} className="Workout-Button">
+            {expanded ? "Hide Exercises" : "Show Exercises"}
+          </button>
           <button className="Workout-Button">Start Workout</button>
         </div>
       </div>

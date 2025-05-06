@@ -1,0 +1,64 @@
+.Complete-Form-Flex {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.Complete-Table-Cont {
+  width: fit-content;
+  margin-bottom: 50px;
+  color: var(--white-color);
+  font-size: 1.5rem;
+}
+
+th {
+  color: var(--accent-color);
+}
+
+input {
+  font-size: 1.5rem;
+}
+
+.Complete-Button {
+  font-size: 1.3rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin: 5px;
+  margin-inline: auto;
+}
+
+.Complete-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+
+  cursor: pointer;
+}
+
+.Complete-Title {
+  font-size: 2.5rem;
+}
+
+.Complete-Exercise-Title {
+  font-size: 1.5rem;
+}
+
+.Complete-Submit-Button {
+  margin-bottom: 50px;
+}
+
+.Complete-Weight-Input {
+  width: 100px;
+}

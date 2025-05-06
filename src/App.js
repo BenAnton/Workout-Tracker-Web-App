@@ -8,6 +8,7 @@ import Workouts from "./Pages/WorkoutsPage";
 import HistoryPage from "./Pages/HistoryPage";
 import Profile from "./Pages/ProfilePage";
 import LoggedInProfile from "./Pages/LoggedInProfile";
+import WorkoutPage from "./Pages/WorkoutPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/History" element={<HistoryPage />} />
             <Route path="/Profile" element={<Profile />} />
             <Route path="/LoggedIn" element={<LoggedInProfile />} />
+            <Route path="/Workout" element={<WorkoutPage />} />
           </Routes>
         </div>
         <Footer />

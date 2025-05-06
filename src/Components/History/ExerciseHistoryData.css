@@ -1,0 +1,11 @@
+.Exercise-HD-Notes {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 100px;
+}
+
+.Exercise-HD-Date {
+  text-align: center;
+
+  color: var(--accent-color);
+}

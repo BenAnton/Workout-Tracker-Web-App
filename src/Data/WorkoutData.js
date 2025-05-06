@@ -12,6 +12,14 @@ const WorkoutData = [
       "Focused on lower body exercises with a focus on compound lifts.",
     setsPerExercise: 3,
     repsPerExercise: 12,
+    exercises: [
+      "Back Squat",
+      "Leg Press",
+      "Walking Lunges",
+      "Romanian Deadlift",
+      "Calf Raises",
+      "Glute Bridges",
+    ],
   },
   {
     id: 2,
@@ -23,6 +31,13 @@ const WorkoutData = [
     description: "Upper body push movements targeting the chest and arms.",
     setsPerExercise: 4,
     repsPerExercise: 10,
+    exercises: [
+      "Bench Press",
+      "Overhead Press",
+      "Incline Dumbbell Press",
+      "Dips",
+      "Triceps Pushdown",
+    ],
   },
   {
     id: 3,
@@ -34,6 +49,14 @@ const WorkoutData = [
     description: "Pull-focused day for back and arms.",
     setsPerExercise: 3,
     repsPerExercise: 12,
+    exercises: [
+      "Pull-Ups",
+      "Barbell Row",
+      "Lat Pulldown",
+      "Face Pulls",
+      "Hammer Curls",
+      "EZ Bar Curls",
+    ],
   },
   {
     id: 4,
@@ -45,6 +68,14 @@ const WorkoutData = [
     description: "Circuit-style training to hit all major muscle groups.",
     setsPerExercise: 2,
     repsPerExercise: 15,
+    exercises: [
+      "Burpees",
+      "Push-Ups",
+      "Air Squats",
+      "Jump Lunges",
+      "Plank to Push-Up",
+      "Mountain Climbers",
+    ],
   },
   {
     id: 5,
@@ -56,6 +87,13 @@ const WorkoutData = [
     description: "Short and intense arm session.",
     setsPerExercise: 4,
     repsPerExercise: 10,
+    exercises: [
+      "Barbell Curls",
+      "Skull Crushers",
+      "Hammer Curls",
+      "Overhead Triceps Extension",
+      "Concentration Curls",
+    ],
   },
   {
     id: 6,
@@ -67,6 +105,14 @@ const WorkoutData = [
     description: "Pushing exercises focused on upper body strength.",
     setsPerExercise: 3,
     repsPerExercise: 12,
+    exercises: [
+      "Bench Press",
+      "Incline Press",
+      "Dips",
+      "Cable Chest Fly",
+      "Triceps Pushdown",
+      "Close-Grip Bench Press",
+    ],
   },
   {
     id: 7,
@@ -78,6 +124,14 @@ const WorkoutData = [
     description: "Strengthening and building the back and biceps.",
     setsPerExercise: 3,
     repsPerExercise: 10,
+    exercises: [
+      "Deadlift",
+      "Barbell Row",
+      "Lat Pulldown",
+      "Seated Row",
+      "Incline Dumbbell Curl",
+      "Chin-Ups",
+    ],
   },
   {
     id: 8,
@@ -89,6 +143,14 @@ const WorkoutData = [
     description: "Targeted core work mixed with light cardio.",
     setsPerExercise: 2,
     repsPerExercise: 20,
+    exercises: [
+      "Russian Twists",
+      "Plank",
+      "Bicycle Crunches",
+      "V-Ups",
+      "Mountain Climbers",
+      "Flutter Kicks",
+    ],
   },
   {
     id: 9,
@@ -100,6 +162,13 @@ const WorkoutData = [
     description: "Build stronger glutes with hip-dominant exercises.",
     setsPerExercise: 3,
     repsPerExercise: 12,
+    exercises: [
+      "Hip Thrusts",
+      "Sumo Deadlifts",
+      "Step-Ups",
+      "Glute Kickbacks",
+      "Bulgarian Split Squats",
+    ],
   },
   {
     id: 10,
@@ -111,6 +180,14 @@ const WorkoutData = [
     description: "High volume upper body session to get the blood flowing.",
     setsPerExercise: 4,
     repsPerExercise: 8,
+    exercises: [
+      "Incline Bench Press",
+      "Lateral Raises",
+      "Cable Curls",
+      "Dumbbell Flyes",
+      "Triceps Dips",
+      "Arnold Press",
+    ],
   },
 ];
 

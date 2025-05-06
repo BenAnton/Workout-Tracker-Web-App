@@ -1,10 +1,32 @@
 import "./HistoryHeader.css";
 
-function HistoryHeader() {
+function HistoryHeader({ setActiveTab, activeTab }) {
+  const showExercises = () => {
+    setActiveTab("Exercises");
+  };
+
+  const showWorkouts = () => {
+    setActiveTab("Workouts");
+  };
+
   return (
     <div className="History-Header-Flex">
-      <h3 className="History-Header-Title">Exercises</h3>
-      <h3 className="History-Header-Title">Workouts</h3>
+      <button
+        className={`History-Header-Button ${
+          activeTab === "Exercises" ? "Active-History-Header-Button" : ""
+        }`}
+        onClick={showExercises}
+      >
+        Exercises
+      </button>
+      <button
+        className={`History-Header-Button ${
+          activeTab === "Workouts" ? "Active-History-Header-Button" : ""
+        }`}
+        onClick={showWorkouts}
+      >
+        Workouts
+      </button>
     </div>
   );
 }
