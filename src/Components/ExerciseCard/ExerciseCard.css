@@ -24,8 +24,10 @@
 
 .Exercise-Card-Img {
   display: block;
-  width: 100%;
+
   max-width: 100%;
+  height: auto;
+  max-height: 300px;
   margin-inline: auto;
   border-radius: 14px 14px 0 0;
   border: 5px solid var(--white-color);
@@ -59,11 +61,25 @@
   margin-bottom: 15px;
 }
 
-.Exercise-Description {
+.Exercise-Description > * {
   flex-grow: 1;
   padding-bottom: 15px;
   text-align: justify;
-  padding-inline: 15px;
+  padding-inline: 25px;
+}
+
+.Exercise-Description > ol {
+  flex-grow: 1;
+  padding-bottom: 15px;
+  text-align: justify;
+  padding-inline: 25px;
+}
+
+.Exercise-Description > li {
+  flex-grow: 1;
+  padding-bottom: 15px;
+  text-align: justify;
+  padding-inline: 25px;
 }
 
 .Workout-Equipment-Cont {
