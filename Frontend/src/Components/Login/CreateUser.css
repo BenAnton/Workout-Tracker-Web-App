@@ -1,0 +1,53 @@
+.Create-User-Form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-inline: auto;
+  gap: 15px;
+  margin-top: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 25px;
+  padding: 5%;
+}
+
+.Create-User-Textarea {
+  height: 100px;
+}
+
+.Create-User-Button {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  width: 250px;
+  height: 50px;
+  margin-inline: auto;
+  font-size: 2rem;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.Create-User-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+}
+
+.Horizontal-Buttons {
+  display: flex;
+}
+
+.Create-User-Heading {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}

@@ -1,26 +1,24 @@
 import "./CreateAccount-Form.css";
+import React, { useState } from "react";
+import CreateUser from "./CreateUser";
 
 function CreateAccountForm() {
+  const [edit, setEdit] = useState(false);
+
+  const handleGetStarted = async (e) => {
+    e.preventDefault();
+    setEdit(true);
+  };
+
   return (
     <>
       <form className="Create-Form-Cont">
-        <input
-          className="Create-Inputs"
-          type="email"
-          placeholder="Email"
-        ></input>
-        <input
-          className="Create-Inputs"
-          type="text"
-          placeholder="Username"
-        ></input>
-        <input
-          className="Create-Inputs"
-          type="password"
-          placeholder="Password"
-        />
-        <button className="Create-Button">Create Account</button>
+        <button className="Create-Button" onClick={handleGetStarted}>
+          Get Started...
+        </button>
       </form>
+
+      {edit && <CreateUser setEdit={setEdit} />}
     </>
   );
 }

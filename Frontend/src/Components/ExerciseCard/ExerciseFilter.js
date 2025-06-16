@@ -11,6 +11,10 @@ function ExerciseFilter() {
   const [equipmentFilter, setEquipmentFilter] = useState("");
   const [muscleFilter, setMuscleFilter] = useState("");
 
+  const handleDeleteExercise = (id) => {
+    setExercises((prev) => prev.filter((ex) => ex.id !== id));
+  };
+
   useEffect(() => {
     const fetchExercises = async () => {
       try {
@@ -115,7 +119,11 @@ function ExerciseFilter() {
       <div className="Exercise-Grid">
         {filteredExercises.length > 0 ? (
           filteredExercises.map((exercise) => (
-            <ExerciseCard key={exercise.id} exercise={exercise} />
+            <ExerciseCard
+              key={exercise.id}
+              exercise={exercise}
+              onDelete={handleDeleteExercise}
+            />
           ))
         ) : (
           <p className="No-Results">No exercises match your filters.</p>

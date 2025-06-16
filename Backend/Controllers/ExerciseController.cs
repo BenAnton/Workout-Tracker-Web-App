@@ -37,5 +37,55 @@ public class ExerciseController : ControllerBase
         return CreatedAtAction(nameof(GetExercises), new { id = exercise.Id }, exercise);
     }
 
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<Exercise>> DeleteExercise(int id)
+    {
+        try
+        {
+            var exerciseToDelete = await _context.Exercises.FindAsync(id);
+            if (exerciseToDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.Exercises.Remove(exerciseToDelete);
+            await _context.SaveChangesAsync();
+
+            return Ok(exerciseToDelete);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Error Deleting Data");
+        }
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<Exercise>> UpdateExercise(int id, [FromBody] Exercise updatedExercise)
+    {
+        if (updatedExercise == null || id != updatedExercise.Id)
+        {
+            return BadRequest("Exercise data invalid");
+        }
+
+        var existingExercise = await _context.Exercises.FindAsync(id);
+        if (existingExercise == null)
+        {
+            return NotFound($"Exercise with ID {id} not found.");
+        }
+
+        existingExercise.Title = updatedExercise.Title;
+        existingExercise.Description = updatedExercise.Description;
+
+
+        try
+        {
+            await _context.SaveChangesAsync();
+            return Ok(existingExercise);
+        }
+        catch (DbUpdateException)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
+        }
+    }
 
 }

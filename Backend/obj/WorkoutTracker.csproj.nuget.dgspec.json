@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/benanton/Desktop/Workout-Tracker-Web-App/Backend/WorkoutTracker/WorkoutTracker.csproj": {}
+    "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj": {}
   },
   "projects": {
-    "/Users/benanton/Desktop/Workout-Tracker-Web-App/Backend/WorkoutTracker/WorkoutTracker.csproj": {
+    "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Backend/WorkoutTracker/WorkoutTracker.csproj",
+        "projectUniqueName": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj",
         "projectName": "WorkoutTracker",
-        "projectPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Backend/WorkoutTracker/WorkoutTracker.csproj",
+        "projectPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj",
         "packagesPath": "/Users/benanton/.nuget/packages/",
-        "outputPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Backend/WorkoutTracker/obj/",
+        "outputPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/benanton/.nuget/NuGet/NuGet.Config"

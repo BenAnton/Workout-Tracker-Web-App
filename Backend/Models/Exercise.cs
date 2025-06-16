@@ -7,6 +7,7 @@ namespace WorkoutTracker.Models
 
     public class Exercise
     {
+        [JsonPropertyName("id")]
         public int Id { get; set; }
         public string Title { get; set; }
         public string ExerciseImg { get; set; }

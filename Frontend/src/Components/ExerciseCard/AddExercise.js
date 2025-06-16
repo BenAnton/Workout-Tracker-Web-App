@@ -147,9 +147,6 @@ function AddExercise({ exercisesObject, onExerciseAdded }) {
                   onChange={(e) => setTitle(e.target.value)}
                 />
 
-                {/* <label htmlFor="type">Type:</label>
-                <input id="type" type="text" /> */}
-
                 <label htmlFor="select-muscles">Select Muscles:</label>
 
                 <div className="Add-Exercise-Horizontal">
@@ -194,7 +191,6 @@ function AddExercise({ exercisesObject, onExerciseAdded }) {
                     <p className="no-muscles">No muscles selected yet</p>
                   )}
                 </div>
-                {/* ************************************************************* */}
 
                 <label htmlFor="select-muscles">Select Equipment:</label>
 
@@ -240,8 +236,6 @@ function AddExercise({ exercisesObject, onExerciseAdded }) {
                     <p className="no-muscles">No muscles selected yet</p>
                   )}
                 </div>
-
-                {/* ************************************************************* */}
 
                 <label htmlFor="textarea-description">Add a Description:</label>
                 <textarea
