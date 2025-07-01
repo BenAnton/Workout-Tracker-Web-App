@@ -7,8 +7,9 @@ import Exercises from "./Pages/ExercisesPage";
 import Workouts from "./Pages/WorkoutsPage";
 import HistoryPage from "./Pages/HistoryPage";
 import Profile from "./Pages/ProfilePage";
-import LoggedInProfile from "./Pages/LoggedInProfile";
+import Dashboard from "./Pages/Dashboard";
 import WorkoutPage from "./Pages/WorkoutPage";
+import ProtectedRoute from "./Components/ProtectedRoutes/ProtectedRoutes";
 
 function App() {
   return (
@@ -22,7 +23,16 @@ function App() {
             <Route path="/Workouts" element={<Workouts />} />
             <Route path="/History" element={<HistoryPage />} />
             <Route path="/Profile" element={<Profile />} />
-            <Route path="/LoggedIn" element={<LoggedInProfile />} />
+
+            <Route
+              path="/Dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="/Workout" element={<WorkoutPage />} />
           </Routes>
         </div>

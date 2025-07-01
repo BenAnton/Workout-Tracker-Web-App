@@ -4,17 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WorkoutTracker.Data;
 using WorkoutTracker.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/users")]
 
 public class UserController : ControllerBase
 {
+
+    private readonly UserManager<User> _userManager;
     private readonly AppDbContext _context;
 
-    public UserController(AppDbContext context)
+    public UserController(AppDbContext context, UserManager<User> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
 
@@ -24,7 +29,7 @@ public class UserController : ControllerBase
     {
         var users = await _context.Users.Select(u => new UserDto
         {
-            Username = u.Username,
+            Username = u.UserName,
             PersonalQ = u.PersonalQ,
             Age = u.Age,
             Height = u.Height,
@@ -48,10 +53,9 @@ public class UserController : ControllerBase
         var user = new User
         {
 
-            Username = dto.Username,
-            PersonalQ = dto.PersonalQ,
+            UserName = dto.UserName,
             Email = dto.Email,
-            Password = dto.Password,
+            PersonalQ = dto.PersonalQ,
             Age = dto.Age,
             Height = dto.Height,
             Weight = dto.Weight,
@@ -59,14 +63,17 @@ public class UserController : ControllerBase
             LoggedIn = false
         };
 
-        _context.Users.Add(user);
+        var result = await _userManager.CreateAsync(user, dto.Password);
 
-        await _context.SaveChangesAsync();
+        if (!result.Succeeded)
+        {
+            return BadRequest(result.Errors);
+        }
 
         var resultDto = new UserDto
         {
 
-            Username = user.Username,
+            Username = user.UserName,
             PersonalQ = user.PersonalQ,
             Age = user.Age,
             Height = user.Height,
@@ -79,5 +86,12 @@ public class UserController : ControllerBase
     }
 
 
+    [HttpGet("me")]
+    [Authorize]
+    public IActionResult GetCurrentUser()
+    {
+        var username = User.Identity.Name;
+        return Ok(new { username });
+    }
 
 }

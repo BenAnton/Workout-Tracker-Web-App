@@ -11,9 +11,14 @@ function CreateUser({ setEdit }) {
   const [weight, setWeight] = useState("");
   const [bodyfat, setBodyFat] = useState("");
   const [quote, setQuote] = useState("");
+  const [passwordErrors, setPasswordErrors] = useState([]);
+
+  const passwordMatch = (a, b) => a === b;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setPasswordErrors([]);
 
     if (!passwordMatch(password, confirmPassword)) {
       alert("Passwords do not match.");
@@ -32,7 +37,7 @@ function CreateUser({ setEdit }) {
     };
 
     try {
-      const response = await fetch("http://localhost:5282/api/users", {
+      const response = await fetch("http://localhost:5282/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,13 +46,29 @@ function CreateUser({ setEdit }) {
       });
 
       if (response.ok) {
-        const addedUser = await response.json();
-        console.log("User added", addedUser);
-        alert("User successfully created!");
+        const registeredUser = await response.json();
+        console.log("User added", registeredUser);
+        alert("Registration successful! you can now login!");
         setEdit(false);
+      } else {
+        try {
+          const errorData = await response.json();
+
+          if (Array.isArray(errorData)) {
+            setPasswordErrors(errorData.map((err) => err.description));
+          } else if (errorData && errorData.message) {
+            alert("Registration Failed: " + errorData.message);
+          } else {
+            alert("Registration Failed");
+          }
+        } catch (err) {
+          console.error("No JSON error message in response");
+          alert("Registration failed due to unknown error");
+        }
       }
     } catch (error) {
-      console.error("Error adding exercise", error);
+      console.error("Error Registering User", error);
+      alert("Registration failed");
     }
   };
 
@@ -55,8 +76,6 @@ function CreateUser({ setEdit }) {
     e.preventDefault();
     setEdit(false);
   };
-
-  const passwordMatch = (a, b) => a === b;
 
   return (
     <>
@@ -92,6 +111,16 @@ function CreateUser({ setEdit }) {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
+
+        {passwordErrors.length > 0 && (
+          <ul className="Pass-Errors">
+            {passwordErrors.map((err, idx) => (
+              <li key={idx} className="Pass-Errors-Li">
+                {err}
+              </li>
+            ))}
+          </ul>
+        )}
 
         <input
           className="Create-Inputs"

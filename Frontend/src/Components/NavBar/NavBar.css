@@ -98,3 +98,14 @@ li {
     margin-block: 15px;
   }
 }
+
+.Username-P {
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.Username-P:hover {
+  color: var(--white-color);
+  cursor: pointer;
+}

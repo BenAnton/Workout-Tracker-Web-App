@@ -261,3 +261,17 @@
 /Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/obj/Debug/net9.0/WorkoutTracker.pdb
 /Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/obj/Debug/net9.0/WorkoutTracker.genruntimeconfig.cache
 /Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/obj/Debug/net9.0/ref/WorkoutTracker.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/dotenv.net.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.Extensions.Identity.Core.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

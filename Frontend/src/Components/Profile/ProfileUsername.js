@@ -5,7 +5,7 @@ var userName = "FakeUser2000";
 var MotivationalQuote =
   "Lift today in case you can't tomorrow, train everyday and never look back";
 
-function Username() {
+function Username({ logout }) {
   return (
     <div className="Profile-User">
       <img
@@ -18,6 +18,9 @@ function Username() {
         <p>{MotivationalQuote}</p>
       </div>
       <button className="Edit-Profile-Button">Edit Profile</button>
+      <button className="Edit-Profile-Button" onClick={logout}>
+        Logout
+      </button>
     </div>
   );
 }

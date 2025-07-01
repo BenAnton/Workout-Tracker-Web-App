@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { ReactComponent as LoginImg } from "../../Assets/Images/SVG-Login.svg";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../Context/UserContext";
 
 function NavBar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const { user } = useContext(UserContext);
 
   return (
     <div className="NavBar-Cont">
@@ -38,16 +39,19 @@ function NavBar() {
           </li>
         </div>
       </ul>
+
       <div className="Nav-Group-Right">
         <ul>
           <li>
-            <Link className="NavBar-Link" to="/Profile">
-              <LoginImg
-                className={`login-icon ${
-                  isLoggedIn ? "logged-in" : "logged-out"
-                }`}
-              />
-            </Link>
+            {!user ? (
+              <Link className="NavBar-Link" to="/Profile">
+                <LoginImg />
+              </Link>
+            ) : (
+              <Link to="/dashboard">
+                <p className="Username-P">{user.username}</p>
+              </Link>
+            )}
           </li>
         </ul>
       </div>

@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ca44d062-185a-4c29-a9b2-e42ae4e5509f")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+761c860827903b3949370aa9a9eafd6264d3cbe6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4947b797790f5f39b28eb79f5517796715ebb0a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
