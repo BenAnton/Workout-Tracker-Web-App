@@ -1,5 +1,7 @@
 import "./Profile.css";
 import completedWorkouts from "../../Data/CompletedWorkouts";
+import {useContext} from "react";
+import {UserContext} from "../Context/UserContext";
 
 function getTotalWeight() {
   let totalWeight = completedWorkouts.reduce(
@@ -21,6 +23,8 @@ function getAverageWeight(totalWeight, totalReps) {
 }
 
 function ProfileStats() {
+    const {user} = useContext(UserContext);
+    
   const totalWeight = getTotalWeight();
   const totalReps = getTotalReps();
   const averageWeight = getAverageWeight(totalWeight, totalReps);

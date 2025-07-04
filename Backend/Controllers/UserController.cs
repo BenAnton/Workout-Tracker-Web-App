@@ -88,10 +88,35 @@ public class UserController : ControllerBase
 
     [HttpGet("me")]
     [Authorize]
-    public IActionResult GetCurrentUser()
+    public async Task<ActionResult<UserDto>> GetCurrentUser()
     {
         var username = User.Identity.Name;
-        return Ok(new { username });
+
+        if (string.IsNullOrEmpty(username))
+        {
+            return Unauthorized("User Identity not found");
+        }
+
+        var user = await _context.Users
+            .Where(u => u.UserName == username)
+            .Select(u => new UserDto
+            {
+                Username = u.UserName,
+                PersonalQ = u.PersonalQ,
+                Age = u.Age,
+                Height = u.Height,
+                Weight = u.Weight,
+                BodyfatPercentage = u.BodyfatPercentage,
+                LoggedIn = u.LoggedIn
+            })
+            .FirstOrDefaultAsync();
+
+        if (user == null)
+        {
+            return NotFound("User not found");
+        }
+        
+        return Ok(user);
     }
 
 }

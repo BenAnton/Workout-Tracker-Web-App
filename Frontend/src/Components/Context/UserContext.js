@@ -19,7 +19,7 @@ export function UserProvider({ children }) {
           return res.json();
         })
         .then((data) => {
-          setUser({ username: data.username });
+          setUser(data);
         })
         .catch((error) => {
           console.error("failed to fetch user", error);

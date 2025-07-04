@@ -3359,11 +3359,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj",
+      "projectUniqueName": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/WorkoutTracker.csproj",
       "projectName": "WorkoutTracker",
-      "projectPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/WorkoutTracker.csproj",
+      "projectPath": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/WorkoutTracker.csproj",
       "packagesPath": "/Users/benanton/.nuget/packages/",
-      "outputPath": "/Users/benanton/Desktop/Workout-Tracker-Web-App/Workout-Tracker-Web-App/Backend/obj/",
+      "outputPath": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/benanton/.nuget/NuGet/NuGet.Config"

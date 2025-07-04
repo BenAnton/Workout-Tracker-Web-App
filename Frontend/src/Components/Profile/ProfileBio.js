@@ -1,11 +1,28 @@
 import "./Profile.css";
+import {useContext} from "react";
+import {UserContext} from "../Context/UserContext";
 
-var age = 23;
-var height = 180;
-var weight = 90;
-var bodyfat = 20;
 
 function ProfileBio() {
+
+
+
+
+    const {user} = useContext(UserContext);
+    console.log(user);
+
+    if(!user) {
+        return <div>Loading User Data...</div>;
+    }
+    
+    const age = user.age ?? "N/A";
+    const height = user.height ?? "N/A";
+    const weight = user.weight ?? "N/A";
+    const bodyfat = user.bodyfatPercentage ?? "N/A";
+
+
+    
+    
   return (
     <div className="Profile-Bio">
       <h2>USER BIO</h2>
