@@ -406,6 +406,9 @@ namespace WorkoutTracker.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
@@ -417,26 +420,20 @@ namespace WorkoutTracker.Migrations
                         .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.Property<int>("RepsPerExercise")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SetsPerExercise")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("WorkoutImg")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("Workouts");
                 });
@@ -449,10 +446,20 @@ namespace WorkoutTracker.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ExerciseId")
+                    b.Property<int?>("ExerciseId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Order")
+                    b.Property<string>("ExerciseName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Reps")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Sets")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Weight")
                         .HasColumnType("integer");
 
                     b.Property<int>("WorkoutId")
@@ -569,26 +576,26 @@ namespace WorkoutTracker.Migrations
 
             modelBuilder.Entity("WorkoutTracker.Models.Workout", b =>
                 {
-                    b.HasOne("WorkoutTracker.Models.User", null)
+                    b.HasOne("WorkoutTracker.Models.User", "user")
                         .WithMany("Workouts")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("WorkoutTracker.Models.WorkoutExercise", b =>
                 {
-                    b.HasOne("WorkoutTracker.Models.Exercise", "Exercise")
+                    b.HasOne("WorkoutTracker.Models.Exercise", null)
                         .WithMany("WorkoutExercises")
-                        .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExerciseId");
 
                     b.HasOne("WorkoutTracker.Models.Workout", "Workout")
                         .WithMany("Exercises")
                         .HasForeignKey("WorkoutId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Exercise");
 
                     b.Navigation("Workout");
                 });

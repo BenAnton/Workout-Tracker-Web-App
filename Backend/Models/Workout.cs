@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WorkoutTracker.Models
 {
     public class Workout
@@ -11,7 +13,10 @@ namespace WorkoutTracker.Models
 
         public ICollection<WorkoutExercise> Exercises { get; set; }
 
-        public string UserId { get; set; }
+        [Column("userId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public User user { get; set; }
     }
 }
