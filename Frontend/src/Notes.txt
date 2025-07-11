@@ -1,37 +1,40 @@
-    id should incremented from 1
-    
-    Exercise name I would like you to generate
-
-    equipment:
-    Barbell
-    Bench
-    Dumbbell
-    Gym mat
-    Incline Bench
-    Kettlebell
-    Pull-up bar
-    SZ-Bar
-    Swiss Ball
-    Bodyweight
-
-    muscle:
-    Shoulders
-    Biceps
-    Hamstrings
-    Calves
-    Glutes
-    Lats
-    Chest
-    Quads
-    Abs
-    Triceps
-
-    Img should always be: BenchPressImg
-
-description I would like you to generate
-
-Type should be: 
-Isolation
-Compound
-AMRAP
-Cardio
+{userId: 1, workoutTitle: "Test Workout", dateCompleted: "2025-07-10T11:29:10.133Z", totalReps: 5,…}
+averageWeight
+: 
+100
+dateCompleted
+: 
+"2025-07-10T11:29:10.133Z"
+exercises
+: 
+[{title: "Squat", heaviestWeight: "100", notes: "", sets: [{reps: 5, weight: 100}]}]
+0
+: 
+{title: "Squat", heaviestWeight: "100", notes: "", sets: [{reps: 5, weight: 100}]}
+heaviestWeight
+: 
+"100"
+notes
+: 
+""
+sets
+: 
+[{reps: 5, weight: 100}]
+0
+: 
+{reps: 5, weight: 100}
+title
+: 
+"Squat"
+totalReps
+: 
+5
+totalWeight
+: 
+500
+userId
+: 
+1
+workoutTitle
+: 
+"Test Workout"

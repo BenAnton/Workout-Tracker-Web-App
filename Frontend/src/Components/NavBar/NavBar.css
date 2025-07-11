@@ -1,111 +1,114 @@
 body {
-  width: 100%;
+    width: 100%;
 }
 
 .NavBar-Cont {
-  color: var(--secondary-color);
-  display: flex;
+    color: var(--secondary-color);
+    display: flex;
 
-  width: 100%;
-  margin-inline: 0;
-  padding-inline: 15px;
-  background-color: var(--primary-color);
-  border-bottom: 5px solid var(--accent-color);
-  height: 10vh;
-  align-items: center;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 15px;
+    background-color: var(--primary-color);
+    border-bottom: 5px solid var(--accent-color);
+    height: 10vh;
+    align-items: center;
 }
 
 h2 {
-  width: auto;
-  min-width: fit-content;
-  text-align: center;
-  color: var(--accent-color);
-  font-weight: 900;
-  font-size: 2rem;
+    width: auto;
+    min-width: fit-content;
+    text-align: center;
+    color: var(--accent-color);
+    font-weight: 900;
+    font-size: 2rem;
 }
 
 .NavBar-List {
-  display: flex;
-  width: 100%;
-  justify-content: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 li {
-  width: 100%;
-  flex-grow: 1;
-  align-content: center;
-  list-style-type: none;
+    width: 100%;
+    flex-grow: 1;
+    align-content: center;
+    list-style-type: none;
 }
 
 .NavBar-Link {
-  list-style: none;
-  text-align: center;
-  font-weight: 900;
-  color: var(--white-color);
-  text-decoration: none;
-  transition: color 0.3s;
+    list-style: none;
+    text-align: center;
+    font-weight: 900;
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .NavBar-Link:hover {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .Nav-Group-Middle {
-  display: flex;
-  gap: 50px;
+    display: flex;
+    gap: 50px;
 }
 
 .login-icon {
-  width: 32px;
-  height: 32px;
-  transition: color 0.3s;
-  cursor: pointer;
+    width: 32px;
+    height: 32px;
+    transition: color 0.3s;
+    cursor: pointer;
 }
 
 .logged-in {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .logged-in:hover {
-  color: var(--white-color);
+    color: var(--white-color);
 }
 
 .logged-out {
-  color: var(--white-color);
+    color: var(--white-color);
 }
 
 .logged-out:hover {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 @media (max-width: 799px) {
-  .NavBar-Cont {
-    flex-direction: column;
-    height: auto;
-  }
+    .NavBar-Cont {
+        flex-direction: column;
+        height: auto;
+    }
 
-  .NavBar-List {
-    flex-direction: column;
-  }
+    .NavBar-List {
+        flex-direction: column;
+    }
 
-  .Nav-Group-Middle {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
+    .Nav-Group-Middle {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
 
-  .Nav-Bar-Title {
-    margin-block: 15px;
-  }
+    .Nav-Bar-Title {
+        margin-block: 15px;
+    }
 }
 
 .Username-P {
-  color: var(--accent-color);
-  font-weight: 900;
-  font-size: 1.5rem;
+    all: unset;
+    color: var(--accent-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+
 }
 
+
 .Username-P:hover {
-  color: var(--white-color);
-  cursor: pointer;
+    color: var(--white-color);
+    cursor: pointer;
 }

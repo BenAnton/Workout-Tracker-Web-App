@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace WorkoutTracker.Models
 {
@@ -11,12 +12,13 @@ namespace WorkoutTracker.Models
         public DateTime Date { get; set; }
         public List<string> MusclesWorked { get; set; }
 
+        // [JsonIgnore]
         public ICollection<WorkoutExercise> Exercises { get; set; }
 
-        [Column("userId")]
+        [Column("UserId")]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public User user { get; set; }
+        public User User { get; set; }
     }
 }

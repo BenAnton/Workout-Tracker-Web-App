@@ -1,33 +1,33 @@
 .Test-Card-Flex {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 3px 5.9px 5.9px hsl(0deg 0% 0% / 0.41);
-  margin: 5px;
-  text-align: center;
-  justify-content: space-evenly;
-  background-color: var(--white-color);
-  padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 5.9px 5.9px hsl(0deg 0% 0% / 0.41);
+    margin: 5px;
+    text-align: center;
+    justify-content: space-evenly;
+    background-color: white;
+    padding: 20px 30px;
 }
 
 .Test-Card-Heading {
-  font-weight: 900;
-  color: var(--accent-color);
-  margin-block: 2px;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-block: 2px;
 }
 
 .Test-Card-Content {
-  color: var(--black-color);
+    color: black;
 }
 
 .Test-Card-Stars {
-  line-height: 0.3;
+    line-height: 0.3;
 }
 
 .Test-Title {
-  width: 80%;
-  text-align: center;
-  margin-inline: auto;
-  padding-inline: 25px;
-  border: none;
-  background-color: var(--secondary-color);
+    width: 80%;
+    text-align: center;
+    margin-inline: auto;
+    padding-inline: 25px;
+    border: none;
+    background-color: var(--secondary-color);
 }

@@ -1,15 +1,18 @@
 import "./WorkoutFilter.css";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import WorkoutCard from "./WorkoutCard";
-import WorkoutData from "../../Data/WorkoutData";
+import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import AddWorkout from "./AddWorkout";
+import {UserContext} from "../Context/UserContext";
 
 function WorkoutFilter() {
-    const [workouts] = useState(WorkoutData);
+    const {user} = useContext(UserContext);
+    const {createdWorkouts: workouts} = useCreatedWorkouts();
     const [filteredWorkouts, setFilteredWorkouts] = useState(workouts);
     const [searchTerm, setSearchTerm] = useState("");
     const [durationFilter, setDurationFilter] = useState("");
     const [muscleFilter, setMuscleFilter] = useState("");
+
 
     const durationRanges = [
         {label: "0-15 minutes", min: 0, max: 15},
@@ -19,9 +22,11 @@ function WorkoutFilter() {
         {label: "Over 60 minutes", min: 60, max: Infinity},
     ];
 
+
     const allMuscles = [
         ...new Set(workouts.flatMap((workout) => workout.musclesWorked)),
     ].sort();
+
 
     useEffect(() => {
         let result = workouts;
@@ -57,7 +62,11 @@ function WorkoutFilter() {
         }
 
         setFilteredWorkouts(result);
-    }, [searchTerm, muscleFilter, durationRanges, durationFilter, workouts]);
+    }, [searchTerm, muscleFilter, durationFilter, workouts]);
+
+    if (!user) return (
+        <h2>Please log in to view saved workouts...</h2>
+    );
 
     return (
         <div className="Workout-Filter-Cont">
@@ -104,7 +113,7 @@ function WorkoutFilter() {
             <div className="Workout-Grid">
                 {filteredWorkouts.length > 0 ? (
                     filteredWorkouts.map((workout) => (
-                        <WorkoutCard key={workout.id} workout={workout}/>
+                        <WorkoutCard key={workout.id} workoutId={workout.id}/>
                     ))
                 ) : (
                     <p className="No-Results">No workouts match your filters</p>

@@ -15,22 +15,29 @@ function Username({logout}) {
     const MotivationalQuote = user.personalQ;
 
     return (
-        <div className="Profile-User">
-            <img
-                className="Profile-Image"
-                src={ProfileImg}
-                alt="default profile"
-            ></img>
-            <div className="Profile-Vertical-Flex">
-                <h3 className="Username-Heading">{username}</h3>
-                <p>{MotivationalQuote}</p>
+        <>
+            <div className="Profile-User">
+                <img
+                    className="Profile-Image"
+                    src={ProfileImg}
+                    alt="default profile"
+                ></img>
+                <div className="Profile-Vertical-Flex">
+                    <h3 className="Username-Heading">{username}</h3>
+                    <p>{MotivationalQuote}</p>
+                </div>
+                <div className="Profile-Username-Buttons">
+                    {/*<button className="Edit-Profile-Button">Edit Profile</button>*/}
+                    <button className="Edit-Profile-Button" onClick={logout}>
+                        Logout
+                    </button>
+                </div>
+
+
             </div>
-            <button className="Edit-Profile-Button">Edit Profile</button>
-            <button className="Edit-Profile-Button" onClick={logout}>
-                Logout
-            </button>
-        </div>
-    );
+        </>
+    )
+        ;
 }
 
 export default Username;

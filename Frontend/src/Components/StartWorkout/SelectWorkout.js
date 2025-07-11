@@ -1,54 +1,56 @@
-import WorkoutData from "../../Data/WorkoutData";
-import React, { useState } from "react";
+import React, {useState} from "react";
+import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import "./SelectWorkout.css";
 
-function SelectWorkout({
-  setWorkoutSelected,
-  setActiveComponent,
-  setWorkoutId,
-}) {
-  const [selectedId, setSelectedId] = useState(WorkoutData[0].id.toString());
 
-  const handleSelectChange = (e) => {
-    setSelectedId(e.target.value);
-  };
+function SelectWorkout({setActiveComponent, setSelectedWorkoutId, createdWorkouts}) {
+    const [localId, setLocalId] = useState("");
 
-  const handleSelectClick = () => {
-    setWorkoutSelected(true);
-    setWorkoutId(selectedId);
-    setActiveComponent("complete");
-  };
+    const handleSelectChange = (e) => {
+        setLocalId(e.target.value);
+    };
 
-  return (
-    <>
-      <div className="Select-Flex">
-        <select className="Select-Select-Input" onChange={handleSelectChange}>
-          <option value="" disabled>
-            Select a Workout
-          </option>
-          {WorkoutData.map((workout) => (
-            <option
-              className="Select-Option"
-              value={workout.id}
-              key={workout.id}
-            >
-              {workout.title}
-            </option>
-          ))}
-        </select>
+    const handleSelectClick = () => {
+        if (localId) {
+            setSelectedWorkoutId(localId);
+            setActiveComponent("complete");
+        } else {
+            alert("Please select a workout first");
+        }
 
-        <button className="Select-Button" onClick={handleSelectClick}>
-          Select
-        </button>
-        <button
-          className="Select-Button"
-          onClick={() => setActiveComponent("start")}
-        >
-          Cancel
-        </button>
-      </div>
-    </>
-  );
+
+    };
+
+    return (
+        <>
+            <div className="Select-Flex">
+                <select className="Select-Select-Input" onChange={handleSelectChange} value={localId}>
+                    <option value="" disabled>
+                        Select a Workout
+                    </option>
+                    {createdWorkouts.map((workout) => (
+                        <option
+                            className="Select-Option"
+                            value={workout.id.toString()}
+                            key={workout.id}
+                        >
+                            {workout.title}
+                        </option>
+                    ))}
+                </select>
+
+                <button className="Select-Button" onClick={handleSelectClick}>
+                    Select
+                </button>
+                <button
+                    className="Select-Button"
+                    onClick={() => setActiveComponent("start")}
+                >
+                    Cancel
+                </button>
+            </div>
+        </>
+    );
 }
 
 export default SelectWorkout;

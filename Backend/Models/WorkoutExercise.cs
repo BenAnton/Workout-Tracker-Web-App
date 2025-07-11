@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WorkoutTracker.Models
 {
     public class WorkoutExercise
@@ -9,6 +11,8 @@ namespace WorkoutTracker.Models
         public int Weight { get; set; }
 
         public int WorkoutId { get; set; }
+
+        [JsonIgnore]
         public Workout Workout { get; set; }
     }
 }

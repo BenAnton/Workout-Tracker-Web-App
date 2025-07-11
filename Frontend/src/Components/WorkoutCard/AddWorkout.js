@@ -13,7 +13,11 @@ function AddWorkout() {
     const [exerciseName, setExerciseName] = useState("");
     const [exerciseOptions, setExerciseOptions] = useState([]);
     const [selectedExercise, setSelectedExercise] = useState([]);
-    const musclesWorked = [...new Set(selectedExercise.flatMap(e => e.muscles))];
+    const musclesWorked = [...new Set(selectedExercise.flatMap(e => e.muscle))];
+
+    const calculateDuration = (workout) => {
+        return Math.round((workout.sets * selectedExercise.length) * 90) / 60;
+    }
 
     useEffect(() => {
         fetch("http://localhost:5282/api/exercises")
@@ -30,17 +34,26 @@ function AddWorkout() {
         e.preventDefault();
         const token = localStorage.getItem("token");
 
-        const newWorkout = {
+        const workoutBase = {
             title,
             description,
-            exerciseName,
             date: new Date().toISOString(),
             musclesWorked,
+            sets: Number(sets),
+            reps: Number(reps),
+        };
+
+        const duration = calculateDuration(workoutBase);
+
+        const newWorkout = {
+            ...workoutBase,
+            duration,
+
             exercises: selectedExercise.map(e => ({
                 exerciseName: e.title,
-                sets,
-                reps,
-                weight
+                sets: Number(sets),
+                reps: Number(reps),
+                weight: Number(weight)
             }))
         };
 
@@ -54,10 +67,11 @@ function AddWorkout() {
                 body: JSON.stringify(newWorkout),
             });
             if (!response.ok) {
-                throw new Error("Failed to create workout");
+                new Error("Failed to create workout");
             }
 
             const data = await response.json();
+            console.log(selectedExercise);
             console.log("Workout Created:", data);
 
             setTitle("");
@@ -66,6 +80,7 @@ function AddWorkout() {
             setReps(1);
             setWeight(0);
             setExerciseName("");
+            setSelectedExercise([]);
         } catch (error) {
             console.error(error);
         }
@@ -139,8 +154,8 @@ function AddWorkout() {
                                     {selectedExercise.map((exercise, index) =>
                                         <>
                                             <div key={index} className="Add-Workout-Map-Div">
-                                                <div className="Add-Workout-Horizontal-Flex"
-                                                     key={index}>{exercise.title}</div>
+                                                <div key={index} className="Add-Workout-Horizontal-Flex"
+                                                >{exercise.title}</div>
                                                 <button onClick={() => handleRemoveExercise(exercise)}
                                                         type="button"
                                                         className="remove-muscle">x

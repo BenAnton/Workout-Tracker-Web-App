@@ -1,18 +1,16 @@
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WorkoutTracker.Data;
+using Microsoft.IdentityModel.Tokens;
 using WorkoutTracker.Controllers;
+using WorkoutTracker.Data;
 using WorkoutTracker.Models;
 using WorkoutTracker.Services;
-using System.Text.Json;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
-
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Load JWT key from .env file
 // DotEnv.Load();
@@ -21,20 +19,27 @@ builder.Configuration.AddEnvironmentVariables();
 
 string jwtKey = builder.Configuration["JWT__KEY"];
 
-
 // Add PostgreSql context
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options
+        .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+        .EnableSensitiveDataLogging()
+        .LogTo(Console.WriteLine, LogLevel.Information)
+);
 
 // Use custom user model for identity management + store user info in PostgreSQL
-builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder
+    .Services.AddIdentity<User, IdentityRole<int>>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 // Add authentication configs
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
+builder
+    .Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
         options.RequireHttpsMetadata = false;
@@ -47,10 +52,13 @@ builder.Services.AddAuthentication(options =>
             ValidAudience = "WorkoutTrackerUser",
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("34234234234252534563647568679789675746364565654645645645646354"))
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(
+                    "34234234234252534563647568679789675746364565654645645645646354"
+                )
+            ),
         };
     });
-
 
 // // Configuration of cookies
 // builder.Services.ConfigureApplicationCookie(options =>
@@ -74,33 +82,36 @@ builder.Services.AddAuthentication(options =>
 // });
 
 // Add controllers and JSON options
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-});
+builder
+    .Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 
 // Add WGER api
 builder.Services.AddScoped<WgerAPI>();
 builder.Services.AddHttpClient();
-
 
 // Enable CORS
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
-    {
-        policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
-    });
+    options.AddPolicy(
+        name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+        }
+    );
 });
 
-
-// Swagger/OpenAPI 
+// Swagger/OpenAPI
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
 
 // Adding the WGER api data
 using (var scope = app.Services.CreateScope())
@@ -114,7 +125,6 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
 
 // Middleware
 app.UseCors(MyAllowSpecificOrigins);

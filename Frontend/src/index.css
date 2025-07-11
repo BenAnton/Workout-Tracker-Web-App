@@ -1,91 +1,98 @@
 :root {
-  --primary-color: #1e2019;
-  --secondary-color: #404141;
-  /* --accent-color: #540d6e; */
-  --accent-color: orange;
-  --black-color: black;
-  --white-color: white;
+    --primary-color: #f4f4f4;
+    --secondary-color: #e0e0e0;
+    --accent-color: orange;
+    --black-color: white;
+    --white-color: black;
+}
+
+[data-theme="dark"] {
+    --primary-color: #1e2019;
+    --secondary-color: #404141;
+    --accent-color: orange;
+    --black-color: black;
+    --white-color: white;
 }
 
 body,
 html {
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  font-family: "inter";
-  box-sizing: border-box;
-  font-size: clamp(14px, 1.5vw, 18px);
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "inter";
+    box-sizing: border-box;
+    font-size: clamp(14px, 1.5vw, 18px);
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .App-Container {
-  width: 100%;
-  min-height: 100vh;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Footer-Cont {
-  width: 100%;
-  max-width: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 .content-wrapper {
-  width: 100%;
-  background-color: var(--secondary-color);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    background-color: var(--secondary-color);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (min-width: 1600px) {
-  body {
-    background-color: var(--secondary-color);
-  }
+    body {
+        background-color: var(--secondary-color);
+    }
 
-  .content-wrapper {
-    max-width: 1600px;
-    width: 100%;
-  }
+    .content-wrapper {
+        max-width: 1600px;
+        width: 100%;
+    }
 
-  .App-Container {
-    width: 1600px;
-    margin-inline: auto;
-    border-inline: 5px solid var(--white-color);
-  }
+    .App-Container {
+        width: 1600px;
+        margin-inline: auto;
+        border-inline: 5px solid var(--white-color);
+    }
 
-  .Footer-Cont {
-    max-width: 1600px;
-  }
+    .Footer-Cont {
+        max-width: 1600px;
+    }
 }
 
 @media (max-width: 799px) {
-  body,
-  html {
-    width: 100vw;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+    body,
+    html {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
 
-  .App-Container {
-    width: 100vw;
-    max-width: 100vw;
-  }
+    .App-Container {
+        width: 100vw;
+        max-width: 100vw;
+    }
 
-  .content-wrapper {
-    max-width: 100vw;
-  }
+    .content-wrapper {
+        max-width: 100vw;
+    }
 
-  .Footer-Cont {
-    width: 100vw;
-    max-width: 100vw;
-  }
+    .Footer-Cont {
+        width: 100vw;
+        max-width: 100vw;
+    }
 }
