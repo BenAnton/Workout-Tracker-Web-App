@@ -32,7 +32,7 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * Entity Framework Core (ORM)\
 * JWT authentication (secure login)\
 
-### Also Used
+### Also Used:
 
 * Reacted Router
 * Context API
