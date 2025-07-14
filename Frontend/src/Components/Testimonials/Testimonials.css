@@ -1,17 +1,30 @@
 .Testimonials-Grid-Cont {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-template-rows: auto;
-  text-align: center;
-  gap: 20px;
-  height: fit-content;
-  padding: 2%;
-  justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: auto;
+    text-align: center;
+    gap: 20px;
+    height: fit-content;
+    padding: 2%;
+    justify-content: center;
+}
+
+.Test-Card-Star-Cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+.Test-Card-Stars {
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: orange;
 }
 
 @media (max-width: 550px) {
-  .Testimonials-Grid-Cont {
-    padding-inline: 35px;
-  }
+    .Testimonials-Grid-Cont {
+        padding-inline: 35px;
+    }
 }

@@ -38,7 +38,7 @@ function Footer() {
             <div className="Footer-Theme-Cont">
                 <button
                     className="Footer-Button"
-                    onClick={toggleTheme}>{theme === "dark" ? " Change To Light Mode" : "Change To Dark mode"}</button>
+                    onClick={toggleTheme}>{theme === "dark" ? " Change To Light Mode" : "Change To Dark Mode"}</button>
             </div>
 
 

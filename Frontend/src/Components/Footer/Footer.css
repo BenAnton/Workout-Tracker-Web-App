@@ -30,12 +30,13 @@
 
 .Footer-Button {
     display: flex;
-    width: auto;
+    justify-content: center;
     font-size: 1.4rem;
     color: var(--accent-color);
     background-color: var(--primary-color);
     border: none;
     margin-inline: auto;
+
     font-weight: 900;
 }
 
@@ -57,12 +58,16 @@
     }
 
     .Footer-List {
-        display: flex;
+        display: none;
         flex-direction: column;
         text-align: center;
     }
 
     .Footer-Cont > h2 {
         margin-block: 15px;
+    }
+
+    .Footer-Button {
+        margin-block: 20px;
     }
 }

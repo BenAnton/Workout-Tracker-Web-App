@@ -18,7 +18,6 @@ namespace WorkoutTracker.Controllers
             _context = context;
         }
 
-        // GET : CompletedWorkout
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CompletedWorkout>>> GetCompletedWorkouts()
         {
@@ -30,7 +29,6 @@ namespace WorkoutTracker.Controllers
             return Ok(workouts);
         }
 
-        // POST : CompletedWorkouts
         [HttpPost]
         public async Task<ActionResult<CompletedWorkout>> PostCompletedWorkout(
             CompletedWorkout workout

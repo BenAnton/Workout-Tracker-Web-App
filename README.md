@@ -4,33 +4,36 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Prerequisites
 
-* Node.js\
-* .Net 6 SDK (or later)\
-* PostgreSQL\
+* Node.js
+* .Net 6 SDK (or later)
+* PostgreSQL
+* Target Framework: .net 9.0
 
 ### Getting Started...
 
-1. Clone the repository:  (CLI) git clone https://github.com/BenAnton/Workout-Tracker-Web-App \
-2. (CLI) cd Workout-Tracker-Web-App \
-3. Install frontend dependencies:  (CLI) npm install \
-4. (CLI) npm start \
-5. Open http://localhost:3000 to view it in your browser.\
-6. (CLI) cd backend \
-7. (CLI) dotnet run\
-8. Open http://localhost:5282 to view it in your browser\
-9. Make sure that PostgreSQL is running and your connection string is configured in appsettings.json/
+1. Clone the repository:  (CLI) git clone https://github.com/BenAnton/Workout-Tracker-Web-App
+2. (CLI) cd Workout-Tracker-Web-App
+3. (CLI) cd frontend
+4. Install frontend dependencies:  (CLI) npm install
+5. (CLI) npm start
+6. Open http://localhost:3000 to view it in your browser.
+7. (CLI) cd backend
+8. (CLI) dotnet run
+9. Open http://localhost:5282 to view it in your browser
+10. Make sure that PostgreSQL is running and your connection string is configured in appsettings.json
+11. (CLI) dotnet ef migration add InitialCreate => dotent ef database update
 
 ## Project Overview
 
-A web application for viewing exercises, creating and tracking workouts and monitoring progress and overall statistics.\
+A web application for viewing exercises, creating and tracking workouts and monitoring progress and overall statistics.
 
 ### Key Technologies:
 
-* React (frontend)\
-* ASP.NET Core Web API (backend)\
-* PostgreSQL (relational database)\
-* Entity Framework Core (ORM)\
-* JWT authentication (secure login)\
+* React (frontend)
+* ASP.NET Core Web API (backend)
+* PostgreSQL (relational database)
+* Entity Framework Core (ORM)
+* JWT authentication (secure login)
 
 ### Also Used:
 
@@ -38,6 +41,11 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * Context API
 * CSS
 * ASP.NET Identity
+
+### Testing
+
+* Jest for frontend testing
+* Xunit for backend testing
 
 ## Features
 
@@ -54,7 +62,15 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * Exercises obtained from WGER API
 * Project used Create-React-App and .Net Core templates.
 
+### Screenshots
+
+<img src="Frontend/public/Screenshots/homepage1.png" width=300/>\
+<img src="Frontend/public/Screenshots/login.png" width=300/>\
+<img src="Frontend/public/Screenshots/workouthistory.png" width=300/>\
+<img src="Frontend/public/Screenshots/workouts.png" width=300/>\
+
 ### Author
 
-Ben Metaxas-Antonaropulos\
+Ben Metaxas-Antonaropulos
+
 https://www.linkedin.com/in/ben-anton-13334168/
