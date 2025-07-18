@@ -37,6 +37,11 @@ function NavBar() {
                             Workout
                         </Link>
                     </li>
+                    <li>
+                        <Link className="NavBar-Link" to="/Tools">
+                            Tools
+                        </Link>
+                    </li>
                 </div>
             </ul>
 

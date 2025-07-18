@@ -13,6 +13,7 @@ import ProtectedRoute from "./Components/ProtectedRoutes/ProtectedRoutes";
 import {CreatedWorkoutProvider} from "./Components/Context/CreatedWorkoutContext";
 import {CompletedWorkoutProvider} from "./Components/Context/CompletedWorkoutContext";
 import {ThemeProvider} from "./Components/Context/ThemeContext";
+import Tools from "./Pages/Tools";
 
 function App() {
     return (
@@ -31,7 +32,7 @@ function App() {
                                     <Route path="/Workouts" element={<Workouts/>}/>
                                     <Route path="/History" element={<HistoryPage/>}/>
                                     <Route path="/Profile" element={<Profile/>}/>
-
+                                    <Route path="/Tools" element={<Tools/>}/>
                                     <Route
 
                                         path="/Dashboard"
