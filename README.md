@@ -56,6 +56,7 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * Exercise History: View exercise history from previously logged workouts.
 * Dashboard Overview: Summarised view of total workouts, total weight lifted and total reps.
 * Responsive UI: Responsive from ultra-wide monitor to standard phone screen.
+* Tooling for weight conversion, plate calculations and one rep max calculator.
 
 ### Acknowledgments
 
@@ -68,6 +69,7 @@ A web application for viewing exercises, creating and tracking workouts and moni
 <img src="Frontend/public/Screenshots/login.png" width=300/>\
 <img src="Frontend/public/Screenshots/workouthistory.png" width=300/>\
 <img src="Frontend/public/Screenshots/workouts.png" width=300/>\
+<img src="Frontend/public/Screenshots/tools.png" width=300/>\
 
 ### Author
 

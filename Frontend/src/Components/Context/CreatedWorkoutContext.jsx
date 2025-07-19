@@ -22,15 +22,15 @@ export function CreatedWorkoutProvider({children}) {
                 const data = await response.json();
                 setCreatedWorkouts(data);
 
-                console.log("Workouts with exercises: ", data)
-                data.forEach((workout, index) => {
-                    console.log(`Workout ${index}`, {
-                        id: workout.id,
-                        title: workout.title,
-                        exerciseCount: workout.exercises?.length || 0,
-                        exercises: workout.exercises || []
-                    });
-                });
+                // console.log("Workouts with exercises: ", data)
+                // data.forEach((workout, index) => {
+                //     console.log(`Workout ${index}`, {
+                //         id: workout.id,
+                //         title: workout.title,
+                //         exerciseCount: workout.exercises?.length || 0,
+                //         exercises: workout.exercises || []
+                //     });
+                // });
 
             } catch (error) {
                 console.error("Error fetching workouts", error);

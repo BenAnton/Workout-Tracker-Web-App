@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import "./NavBar.css";
-import {ReactComponent as LoginImg} from "../../Assets/Images/SVG-Login.svg";
-import React, {useState, useContext} from "react";
+import LoginImg from "../../Assets/Images/SVG-Login.svg?react";
+import React, {useContext} from "react";
 import {UserContext} from "../Context/UserContext";
 
 function NavBar() {
@@ -50,7 +50,7 @@ function NavBar() {
                     <li>
                         {!user ? (
                             <Link className="NavBar-Link" to="/Profile">
-                                <LoginImg/>
+                                <LoginImg className="login-icon" alt="Login Account"/>
                             </Link>
                         ) : (
                             <Link to="/dashboard" className="Username-P">

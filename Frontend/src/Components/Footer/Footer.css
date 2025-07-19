@@ -40,6 +40,12 @@
     font-weight: 900;
 }
 
+.Footer-Button:hover {
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+
 .Footer-Link:hover {
     color: var(--accent-color);
 }

@@ -18,7 +18,7 @@ function WorkoutPage() {
     const workoutTitleFromState = location.state?.title;
 
     const selectedWorkout = createdWorkouts.find((w) => w.id.toString() === selectedWorkoutId);
-    console.log("selected Workout from workout page: ", selectedWorkout);
+    // console.log("selected Workout from workout page: ", selectedWorkout);
 
     useEffect(() => {
         if (workoutTitleFromState && createdWorkouts.length > 0) {
