@@ -4,7 +4,6 @@ import {useLocation} from "react-router-dom";
 import SelectWorkout from "../Components/StartWorkout/SelectWorkout";
 import CompleteWorkout from "../Components/StartWorkout/CompleteWorkout";
 import WorkoutSummary from "../Components/StartWorkout/WorkoutSummary";
-import WorkoutData from "../Data/WorkoutData";
 import {useCreatedWorkouts} from "../Components/Context/CreatedWorkoutContext";
 
 
@@ -18,7 +17,7 @@ function WorkoutPage() {
     const workoutTitleFromState = location.state?.title;
 
     const selectedWorkout = createdWorkouts.find((w) => w.id.toString() === selectedWorkoutId);
-    // console.log("selected Workout from workout page: ", selectedWorkout);
+
 
     useEffect(() => {
         if (workoutTitleFromState && createdWorkouts.length > 0) {

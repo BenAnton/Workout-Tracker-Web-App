@@ -2,13 +2,17 @@ import React from "react";
 import {render, screen, fireEvent} from "@testing-library/react";
 import SignUpLogin from "../Components/Login/SignUp-Login"
 
-jest.mock("../Components/Login/SignUp-Form", () => () => (
-    <div data-testid="signup-form">SignupForm</div>
-));
+jest.mock("../Components/Login/SignUp-Form", () => {
+    const MockSignUpForm = () => <div data-testid="signup-form">SignupForm</div>;
+    MockSignUpForm.displayName = "MockSignUpForm";
+    return MockSignUpForm;
+});
 
-jest.mock("../Components/Login/CreateAccount-Form", () => () => (
-    <div data-testid="create-account-form">CreateAccountForm</div>
-));
+jest.mock("../Components/Login/CreateAccount-Form", () => {
+    const MockCreateAccountForm = () => <div data-testid="create-account-form">Create account</div>;
+    MockCreateAccountForm.displayName = "MockCreateAccountForm";
+    return MockCreateAccountForm;
+});
 
 describe("SignUp Login Component", () => {
     test("Renders sign in and create account buttons", () => {

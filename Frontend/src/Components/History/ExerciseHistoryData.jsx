@@ -1,5 +1,7 @@
 import React from "react";
 import "./ExerciseHistoryData.css";
+import PropTypes from "prop-types";
+
 
 function ExerciseHistoryData({instance}) {
     function formatWeight(weight) {
@@ -45,3 +47,7 @@ function ExerciseHistoryData({instance}) {
 }
 
 export default ExerciseHistoryData;
+
+ExerciseHistoryData.propTypes = {
+    instance: PropTypes.object.isRequired,
+}

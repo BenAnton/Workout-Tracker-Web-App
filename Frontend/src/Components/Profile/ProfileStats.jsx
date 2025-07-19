@@ -1,12 +1,9 @@
 import "./Profile.css";
-import completedWorkouts from "../../Data/CompletedWorkouts";
-import {useContext} from "react";
-import {UserContext} from "../Context/UserContext";
 import {useCompletedWorkouts} from "../Context/CompletedWorkoutContext";
 
 
 function ProfileStats() {
-    const {user} = useContext(UserContext);
+
 
     const {completedWorkouts} = useCompletedWorkouts();
 

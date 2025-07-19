@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import "./SelectWorkout.css";
+import PropTypes from "prop-types";
 
 
 function SelectWorkout({setActiveComponent, setSelectedWorkoutId, createdWorkouts}) {
@@ -54,3 +54,10 @@ function SelectWorkout({setActiveComponent, setSelectedWorkoutId, createdWorkout
 }
 
 export default SelectWorkout;
+
+SelectWorkout.propTypes = {
+    useCreatedWorkouts: PropTypes.array.isRequired,
+    setActiveComponent: PropTypes.func.isRequired,
+    setSelectedWorkoutId: PropTypes.func.isRequired,
+    createdWorkouts: PropTypes.array.isRequired,
+}

@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect, createContext} from "react";
+import PropTypes from "prop-types";
 
 const CreatedWorkoutContext = createContext();
 
@@ -61,4 +62,8 @@ export function CreatedWorkoutProvider({children}) {
 
 export function useCreatedWorkouts() {
     return useContext(CreatedWorkoutContext);
+}
+
+CreatedWorkoutProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 }

@@ -2,6 +2,7 @@ import ProfileImg from "../../Assets/Images/profile-default.svg";
 import "./Profile.css";
 import {useContext} from "react";
 import {UserContext} from "../Context/UserContext";
+import PropTypes from "prop-types";
 
 function Username({logout}) {
 
@@ -41,3 +42,7 @@ function Username({logout}) {
 }
 
 export default Username;
+
+Username.propTypes = {
+    logout: PropTypes.func.isRequired,
+}

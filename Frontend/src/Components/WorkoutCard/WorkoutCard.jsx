@@ -1,11 +1,13 @@
 import "./WorkoutCard.css";
 import "./ExerciseBreak.css";
 import MuscleWorked from "./MusclesWorked";
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import ExerciseBreak from "./ExerciseBreak";
 import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import DefaultWorkOutImg from "../../Assets/Images/Workout.jpg";
+import PropTypes from "prop-types";
+
 
 function WorkoutCard({workoutId}) {
 
@@ -85,3 +87,7 @@ function WorkoutCard({workoutId}) {
 }
 
 export default WorkoutCard;
+
+WorkoutCard.propTypes = {
+    workoutId: PropTypes.string.isRequired,
+}

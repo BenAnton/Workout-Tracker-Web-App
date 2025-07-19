@@ -1,5 +1,5 @@
 import "./HistoryHeader.css";
-
+import PropTypes from "prop-types";
 
 function HistoryHeader({setActiveTab, activeTab}) {
 
@@ -38,3 +38,8 @@ function HistoryHeader({setActiveTab, activeTab}) {
 }
 
 export default HistoryHeader;
+
+HistoryHeader.propTypes = {
+    activeTab: PropTypes.string,
+    setActiveTab: PropTypes.func.isRequired,
+}

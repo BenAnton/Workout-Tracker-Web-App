@@ -1,6 +1,7 @@
 import CollapsingExerciseCard from "./CollapsingExerciseCard";
 import React, {useState} from "react";
 import WorkoutStats from "./WorkoutStats";
+import PropTypes from "prop-types";
 
 function WorkoutHistoryCard({workout}) {
     const [expanded, setExpanded] = useState(false);
@@ -45,3 +46,7 @@ function WorkoutHistoryCard({workout}) {
 }
 
 export default WorkoutHistoryCard;
+
+WorkoutHistoryCard.propTypes = {
+    workout: PropTypes.object.isRequired,
+}

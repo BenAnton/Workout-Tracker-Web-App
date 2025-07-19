@@ -4,11 +4,10 @@ import {motion, AnimatePresence} from "framer-motion";
 // import ExerciseData from "../../Data/ExerciseData";
 import fetchExercises from "../../Services/Excerciseservice";
 import MuscleWorked from "../WorkoutCard/MusclesWorked";
+import PropTypes from "prop-types";
 
-function AddExercise({exercisesObject, onExerciseAdded}) {
+function AddExercise({onExerciseAdded}) {
     const [isExpanded, setIsExpanded] = useState(false);
-    // const [exercises] = useState(ExerciseData);
-    const [exercises, setExercises] = useState([]);
     const [musclesAdded, setMusclesAdded] = useState([]);
     const [selectedMuscles, setSelectedMuscles] = useState("Abs");
     const [selectedEquipment, setSelectedEquipment] = useState("None");
@@ -17,7 +16,7 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
     const [equipmentAdded, setEquipmentAdded] = useState([]);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [type, setType] = useState("");
+
 
     const handleClose = (e) => {
         e.preventDefault();
@@ -53,7 +52,6 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
 
         const newExercise = {
             title,
-            type,
             description,
             muscle: musclesAdded,
             equipment: equipmentAdded,
@@ -74,8 +72,6 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
 
                 onExerciseAdded(addedExercise);
 
-                setExercises((prevExercises) => [...prevExercises, addedExercise]);
-
                 setTitle("");
                 setDescription("");
                 setMusclesAdded([]);
@@ -92,7 +88,6 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
         const loadExercises = async () => {
             try {
                 const data = await fetchExercises();
-                setExercises(data);
 
                 const allMuscles = data
                     .flatMap((exercises) => exercises.muscle)
@@ -106,7 +101,6 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
                 const uniqueEquipment = [...new Set(allEquipment)];
                 setEquipmentArray(uniqueEquipment);
 
-                // setFilteredExercises(data);
             } catch (error) {
                 console.error("Error fetching exercises", error);
             }
@@ -269,3 +263,8 @@ function AddExercise({exercisesObject, onExerciseAdded}) {
 }
 
 export default AddExercise;
+
+
+AddExercise.propTypes = {
+    onExerciseAdded: PropTypes.func.isRequired,
+}

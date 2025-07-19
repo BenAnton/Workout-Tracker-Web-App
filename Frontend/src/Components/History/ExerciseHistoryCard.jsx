@@ -1,6 +1,7 @@
 import "./ExerciseHistoryCard.css";
 import React, {useState} from "react";
 import ExerciseHistoryData from "./ExerciseHistoryData";
+import PropTypes from "prop-types";
 
 function ExerciseHistoryCard({exerciseTitle, exerciseInstances}) {
     const [expanded, setExpanded] = useState(false);
@@ -36,3 +37,9 @@ function ExerciseHistoryCard({exerciseTitle, exerciseInstances}) {
 }
 
 export default ExerciseHistoryCard;
+
+
+ExerciseHistoryCard.propTypes = {
+    exerciseTitle: PropTypes.string,
+    exerciseInstances: PropTypes.arrayOf()
+}

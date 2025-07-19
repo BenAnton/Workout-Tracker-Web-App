@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import ExerciseCard from "./ExerciseCard";
 import "./ExerciseFilter.css";
 import AddExercise from "./AddExercise";

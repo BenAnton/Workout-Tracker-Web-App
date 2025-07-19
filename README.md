@@ -15,13 +15,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. (CLI) cd Workout-Tracker-Web-App
 3. (CLI) cd frontend
 4. Install frontend dependencies:  (CLI) npm install
-5. (CLI) npm start
+5. (CLI) npm run dev
 6. Open http://localhost:3000 to view it in your browser.
 7. (CLI) cd backend
 8. (CLI) dotnet run
 9. Open http://localhost:5282 to view it in your browser
 10. Make sure that PostgreSQL is running and your connection string is configured in appsettings.json
-11. (CLI) dotnet ef migration add InitialCreate => dotent ef database update
+11. (CLI) dotnet ef migration add InitialCreate => dotnet ef database update
 
 ## Project Overview
 

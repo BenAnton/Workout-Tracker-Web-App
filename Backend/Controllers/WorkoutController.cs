@@ -87,7 +87,7 @@ public class WorkoutController : ControllerBase
 
         var workouts = await _context
             .Workouts.Include(w => w.Exercises)
-            .Where(w => w.UserId == user.Id)
+            // .Where(w => w.UserId == user.Id)
             .Select(w => new Workout
             {
                 Id = w.Id,

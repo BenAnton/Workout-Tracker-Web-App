@@ -1,6 +1,6 @@
-import WorkoutData from "../../Data/WorkoutData";
 import "./CompleteWorkout.css";
 import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
+import PropTypes from "prop-types";
 
 function CompleteWorkout({
                              setActiveComponent,
@@ -156,3 +156,12 @@ function CompleteWorkout({
 }
 
 export default CompleteWorkout;
+
+
+CompleteWorkout.propTypes = {
+    workout: PropTypes.object.isRequired,
+    setActiveComponent: PropTypes.func.isRequired,
+    selectedWorkout: PropTypes.object.isRequired,
+    setCompletedWorkout: PropTypes.func.isRequired,
+
+}

@@ -5,6 +5,14 @@ import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import AddWorkout from "./AddWorkout";
 import {UserContext} from "../Context/UserContext";
 
+const durationRanges = [
+    {label: "0-15 minutes", min: 0, max: 15},
+    {label: "15-30 minutes", min: 15, max: 30},
+    {label: "30-45 minutes", min: 30, max: 45},
+    {label: "45-60 minutes", min: 45, max: 60},
+    {label: "Over 60 minutes", min: 60, max: Infinity},
+];
+
 function WorkoutFilter() {
     const {user} = useContext(UserContext);
     const {createdWorkouts: workouts} = useCreatedWorkouts();
@@ -12,15 +20,6 @@ function WorkoutFilter() {
     const [searchTerm, setSearchTerm] = useState("");
     const [durationFilter, setDurationFilter] = useState("");
     const [muscleFilter, setMuscleFilter] = useState("");
-
-
-    const durationRanges = [
-        {label: "0-15 minutes", min: 0, max: 15},
-        {label: "15-30 minutes", min: 15, max: 30},
-        {label: "30-45 minutes", min: 30, max: 45},
-        {label: "45-60 minutes", min: 45, max: 60},
-        {label: "Over 60 minutes", min: 60, max: Infinity},
-    ];
 
 
     const allMuscles = [
