@@ -43,7 +43,7 @@ public class AuthController : ControllerBase
             BodyfatPercentage = dto.BodyfatPercentage,
         };
 
-        var result = await _userManager.CreateAsync(user, dto.Password);
+        var result = await _userManager.CreateAsync(user, dto.Password!);
         if (!result.Succeeded)
             return BadRequest(result.Errors);
 
@@ -57,11 +57,11 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
     {
-        var user = await _userManager.FindByNameAsync(loginDto.Username);
+        var user = await _userManager.FindByNameAsync(loginDto.Username!);
         if (user == null)
             return Unauthorized("Invalid Details Provided");
 
-        var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+        var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password!, false);
         if (!result.Succeeded)
             return Unauthorized("Invalid Details Provided");
 
@@ -73,13 +73,13 @@ public class AuthController : ControllerBase
     {
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName!),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Name, user.UserName!),
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(

@@ -9,6 +9,6 @@ namespace WorkoutTracker.Models
         public int CompletedExerciseId { get; set; }
         public int Reps { get; set; }
         public int Weight { get; set; }
-        public CompletedExercise CompletedExercise { get; set; }
+        public CompletedExercise? CompletedExercise { get; set; }
     }
 }

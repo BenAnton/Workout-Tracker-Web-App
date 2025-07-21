@@ -1,32 +1,37 @@
 .Signup-Form-Cont {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  height: 60%;
-  margin-inline: auto;
-  margin-top: 5%;
-  gap: 25px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 60%;
+    margin-inline: auto;
+    margin-top: 5%;
+    gap: 25px;
+    text-align: center;
 }
 
 .Signup-Inputs {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .Signup-Button {
-  font-size: 2rem;
-  margin-bottom: -25px;
-  background-color: var(--accent-color);
-  color: var(--white-color);
-  border: none;
+    font-size: 2rem;
+    margin-bottom: -25px;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
 }
 
 .Signup-Button:hover {
-  cursor: pointer;
-  color: var(--accent-color);
-  background-color: var(--white-color);
+    cursor: pointer;
+    color: var(--accent-color);
+    background-color: var(--white-color);
 }
 
 .Forgot-Text {
-  color: var(--white-color);
+    color: var(--white-color);
+}
+
+.SignIn-Error {
+    color: red;
+    margin-block: -5px;
 }

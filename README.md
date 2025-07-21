@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * Node.js
 * .Net 6 SDK (or later)
-* PostgreSQL
+* PostgresSQL
 * Target Framework: .net 9.0
 
 ### Getting Started...
@@ -20,7 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 7. (CLI) cd backend
 8. (CLI) dotnet run
 9. Open http://localhost:5282 to view it in your browser
-10. Make sure that PostgreSQL is running and your connection string is configured in appsettings.json
+10. Make sure that PostgresSQL is running and your connection string is configured in appsettings.json
 11. (CLI) dotnet ef migration add InitialCreate => dotnet ef database update
 
 ## Project Overview
@@ -31,7 +31,7 @@ A web application for viewing exercises, creating and tracking workouts and moni
 
 * React (frontend)
 * ASP.NET Core Web API (backend)
-* PostgreSQL (relational database)
+* PostgresSQL (relational database)
 * Entity Framework Core (ORM)
 * JWT authentication (secure login)
 

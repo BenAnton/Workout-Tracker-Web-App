@@ -6,7 +6,7 @@ using WorkoutTracker.Data;
 using WorkoutTracker.DTO;
 using WorkoutTracker.Models;
 
-namespace WorkoutTracker.Models;
+namespace WorkoutTracker.Controllers;
 
 [ApiController]
 [Route("api/workouts")]
@@ -25,7 +25,7 @@ public class WorkoutController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateWorkout([FromBody] CreateWorkoutsDto dto)
     {
-        var username = User.Identity.Name;
+        var username = User?.Identity?.Name;
         if (string.IsNullOrEmpty(username))
             return Unauthorized("Username is empty");
 
@@ -44,7 +44,7 @@ public class WorkoutController : ControllerBase
             Date = DateTime.UtcNow,
             UserId = user.Id,
             Exercises = dto
-                .Exercises.Select(e => new WorkoutExercise
+                .Exercises!.Select(e => new WorkoutExercise
                 {
                     Sets = e.Sets,
                     Reps = e.Reps,
@@ -71,7 +71,7 @@ public class WorkoutController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Workout>>> GetAllWorkouts()
     {
-        var username = User.Identity.Name;
+        var username = User?.Identity?.Name;
 
         if (string.IsNullOrEmpty(username))
         {
@@ -84,38 +84,40 @@ public class WorkoutController : ControllerBase
         {
             return Unauthorized("User not found");
         }
+            
+        var workoutsFromDb = await _context 
+                .Workouts
+                .Include(w => w.Exercises)
+                .Where(w => w.UserId == user.Id)
+                .ToListAsync();
 
-        var workouts = await _context
-            .Workouts.Include(w => w.Exercises)
-            // .Where(w => w.UserId == user.Id)
-            .Select(w => new Workout
-            {
-                Id = w.Id,
-                Title = w.Title,
-                Description = w.Description,
-                Duration = w.Duration,
-                Date = w.Date,
-                MusclesWorked = w.MusclesWorked,
-                Exercises = w
-                    .Exercises.Select(e => new WorkoutExercise
-                    {
-                        Id = e.Id,
-                        ExerciseName = e.ExerciseName,
-                        Sets = e.Sets,
-                        Reps = e.Reps,
-                        Weight = e.Weight,
-                    })
-                    .ToList(),
-            })
-            .ToListAsync();
-
-        Console.WriteLine($"Found {workouts.Count} workouts for user {user.Id}");
-        foreach (var workout in workouts)
+        var workouts = workoutsFromDb.Select(w => new Workout
         {
-            Console.WriteLine(
-                $"Workout {workout.Id}: {workout.Title} has {workout.Exercises.Count} exercises"
-            );
-        }
+            Id = w.Id,
+            Title = w.Title,
+            Description = w.Description,
+            Duration = w.Duration,
+            Date = w.Date,
+            MusclesWorked = w.MusclesWorked,
+            Exercises = (w.Exercises ?? new List<WorkoutExercise>()).Select(e => new WorkoutExercise
+                {
+                    Id = e.Id,
+                    ExerciseName = e.ExerciseName,
+                    Sets = e.Sets,
+                    Reps = e.Reps,
+                    Weight = e.Weight,
+                })
+                .ToList(),
+        }).ToList();
+
+
+        // Console.WriteLine($"Found {workouts.Count} workouts for user {user.Id}");
+        // foreach (var workout in workouts)
+        // {
+        //     Console.WriteLine(
+        //         $"Workout {workout.Id}: {workout.Title} has {workout?.Exercises?.Count} exercises"
+        //     );
+        // }
         return Ok(workouts);
     }
 }

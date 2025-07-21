@@ -31,7 +31,7 @@
 .Results-Count {
   margin-bottom: 15px;
   font-size: 14px;
-  color: var(--alt-color);
+  color: var(--secondary-color);
   margin-inline: 10px;
 }
 
@@ -53,11 +53,36 @@
   text-align: center;
   padding: 40px;
   font-size: 18px;
-  color: var(--alt-color);
+  color: var(--secondary-color);
 }
 
 @media (max-width: 550px) {
   .Filter-Control {
     flex-direction: column;
   }
+}
+
+.Load-More-Button {
+  font-size: 1.3rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  font-weight: 900;
+  margin: 15px;
+  margin-inline: auto;
+}
+
+.Load-More-Button:hover {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  cursor: pointer;
 }

@@ -6,13 +6,14 @@ namespace WorkoutTracker.DTO
     {
 
         [JsonPropertyName("email")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [JsonPropertyName("password")]
-        public string Password { get; set; }
-        [JsonPropertyName("username")]
-        public string UserName { get; set; }
+        public string? Password { get; set; } = null!;
+
+        [JsonPropertyName("username")] 
+        public string? UserName { get; set; } = null!;
         [JsonPropertyName("personalQ")]
-        public string PersonalQ { get; set; }
+        public string? PersonalQ { get; set; }
         [JsonPropertyName("age")]
         public int Age { get; set; }
         [JsonPropertyName("height")]

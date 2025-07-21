@@ -11,6 +11,9 @@ function ExerciseFilter() {
     const [searchTerm, setSearchTerm] = useState("");
     const [equipmentFilter, setEquipmentFilter] = useState("");
     const [muscleFilter, setMuscleFilter] = useState("");
+    const [displayedExercises, setDisplayedExercises] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const ExercisePerPage = 12;
 
     const handleDeleteExercise = (id) => {
         setExercises((prev) => prev.filter((ex) => ex.id !== id));
@@ -34,6 +37,12 @@ function ExerciseFilter() {
 
         fetchExercises();
     }, []);
+    
+    useEffect(() => {
+        const startIndex = 0;
+        const endIndex = currentPage * ExercisePerPage;
+        setDisplayedExercises(filteredExercises.slice(startIndex, endIndex));
+    }, [filteredExercises, currentPage]);
 
     const allEquipment = [
         ...new Set(exercises.flatMap((ex) => ex.equipment)),
@@ -66,12 +75,19 @@ function ExerciseFilter() {
         }
 
         setFilteredExercises(result);
+        setCurrentPage(1);
     }, [searchTerm, equipmentFilter, muscleFilter, exercises]);
 
     if (loading) return <p>Loading Exercises...</p>;
 
+    const handleLoadMore = () => {
+        setCurrentPage(currentPage + 1);
+    }
+    
+    const moreExercisesAvailable = displayedExercises.length < filteredExercises.length;
 
     return (
+        <>
         <div className="Exercise-Filter-Cont">
             <div className="Filter-Control">
                 <input
@@ -110,7 +126,8 @@ function ExerciseFilter() {
             </div>
 
             <p className="Results-Count">
-                Showing {filteredExercises.length} of {exercises.length} exercises
+                Showing {displayedExercises.length} of {filteredExercises.length} exercises
+                {filteredExercises.length !== exercises.length && `(filtered from ${exercises.length} total)`}
             </p>
 
             <AddExercise
@@ -120,7 +137,7 @@ function ExerciseFilter() {
 
             <div className="Exercise-Grid">
                 {filteredExercises.length > 0 ? (
-                    filteredExercises.map((exercise) => (
+                    displayedExercises.map((exercise) => (
                         <ExerciseCard
                             key={exercise.id}
                             exercise={exercise}
@@ -131,7 +148,16 @@ function ExerciseFilter() {
                     <p className="No-Results">No exercises match your filters.</p>
                 )}
             </div>
+
+          
+            
         </div>
+
+            {moreExercisesAvailable && (
+                <button className="Load-More-Button" onClick={handleLoadMore}>Load More...</button>
+            )}
+            
+        </>
     );
 }
 

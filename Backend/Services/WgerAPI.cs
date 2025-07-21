@@ -35,7 +35,7 @@ namespace WorkoutTracker.Services
 
             var exerciseAPIUrl = "https://wger.de/api/v2/exerciseinfo/?language=2&status=2";
             var allWgerExercises = new List<WgerExercise>();
-            string nextPageUrl = exerciseAPIUrl;
+            string? nextPageUrl = exerciseAPIUrl;
 
             try
             {
@@ -103,14 +103,14 @@ namespace WorkoutTracker.Services
                     Description = englishTranslation.Description,
                     Type = wgerExercise.Category?.Name ?? "Uncategorized",
                     ExerciseImg = wgerExercise.Images?.FirstOrDefault(i => i.IsMain)?.ImageUrl ?? "",
-                    Equipment = wgerExercise.Equipment?.Select(e => e.Name).ToList() ?? new List<string>(),
-                    Muscle = wgerExercise.Muscles?.Select(m => !string.IsNullOrEmpty(m.NameEn) ? m.NameEn : m.Name).ToList() ?? new List<string>()
+                    Equipment = wgerExercise.Equipment?.Select(e => e.Name ?? "").ToList() ?? new List<string>(),
+                    Muscle = wgerExercise.Muscles?.Select(m => !string.IsNullOrEmpty(m.NameEn) ? m.NameEn : m.Name ?? "").ToList() ?? new List<string>()
                 };
 
                 if (wgerExercise.MusclesSecondary?.Any() == true)
                 {
                     exercise.Muscle.AddRange(
-                        wgerExercise.MusclesSecondary.Select(m => !string.IsNullOrEmpty(m.NameEn) ? m.NameEn : m.Name)
+                        wgerExercise.MusclesSecondary.Select(m => !string.IsNullOrEmpty(m.NameEn) ? m.NameEn : m.Name ?? "")
                     );
                 }
                 exercises.Add(exercise);

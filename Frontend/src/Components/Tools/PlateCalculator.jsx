@@ -88,7 +88,7 @@ function PlateCalculator() {
                 <label>Equipment Weight</label>
                 <input value={equipmentWeight} onChange={handleEquipmentWeightChange} type="number"/>
 
-                <button onClick={calculatePlates}>Calculate</button>
+                <button className="Plate-Button" onClick={calculatePlates}>Calculate</button>
             </div>
 
             <div className="Plate-Calculator-Table">

@@ -52,7 +52,6 @@
 .Add-Exercise-Button:hover {
   color: var(--accent-color);
   background-color: var(--white-color);
-
   cursor: pointer;
 }
 

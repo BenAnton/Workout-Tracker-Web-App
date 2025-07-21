@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddEnvironmentVariables();
 
-string jwtKey = builder.Configuration["JWT__KEY"];
+string? jwtKey = builder.Configuration["JWT__KEY"];
 
 // Add PostgreSql context
 builder.Services.AddDbContext<AppDbContext>(options =>

@@ -6,16 +6,16 @@ namespace WorkoutTracker.Models
     {
 
         [JsonPropertyName("results")]
-        public List<T> Results { get; set; }
+        public List<T>? Results { get; set; }
 
         [JsonPropertyName("count")]
         public int Count { get; set; }
 
         [JsonPropertyName("next")]
-        public string Next { get; set; }
+        public string? Next { get; set; }
 
         [JsonPropertyName("previous")]
-        public string Previous { get; set; }
+        public string? Previous { get; set; }
 
     }
 
@@ -25,25 +25,25 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("uuid")]
-        public string Uid { get; set; }
+        public string? Uid { get; set; }
 
         [JsonPropertyName("category")]
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         [JsonPropertyName("muscles")]
-        public List<Muscle> Muscles { get; set; }
+        public List<Muscle>? Muscles { get; set; }
 
         [JsonPropertyName("muscles_secondary")]
-        public List<Muscle> MusclesSecondary { get; set; }
+        public List<Muscle>? MusclesSecondary { get; set; }
 
         [JsonPropertyName("equipment")]
-        public List<Equipment> Equipment { get; set; }
+        public List<Equipment>? Equipment { get; set; }
 
         [JsonPropertyName("translations")]
-        public List<Translation> Translations { get; set; }
+        public List<Translation>? Translations { get; set; }
 
         [JsonPropertyName("images")]
-        public List<Image> Images { get; set; }
+        public List<Image>? Images { get; set; }
     }
 
     public class Category
@@ -52,7 +52,7 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 
     public class Muscle
@@ -61,19 +61,19 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("name_en")]
-        public string NameEn { get; set; }
+        public string? NameEn { get; set; }
 
         [JsonPropertyName("is_front")]
         public bool IsFront { get; set; }
 
         [JsonPropertyName("image_url_main")]
-        public string ImageUrlMain { get; set; }
+        public string? ImageUrlMain { get; set; }
 
         [JsonPropertyName("image_url_secondary")]
-        public string ImageUrlSecondary { get; set; }
+        public string? ImageUrlSecondary { get; set; }
     }
 
     public class Equipment
@@ -82,7 +82,7 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 
     public class Translation
@@ -91,10 +91,10 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [JsonPropertyName("language")]
         public int Language { get; set; }
@@ -106,13 +106,13 @@ namespace WorkoutTracker.Models
         public int Id { get; set; }
 
         [JsonPropertyName("uuid")]
-        public string Uuid { get; set; }
+        public string? Uuid { get; set; }
 
         [JsonPropertyName("exercise_base")]
         public int ExerciseBase { get; set; }
 
         [JsonPropertyName("image")]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         [JsonPropertyName("is_main")]
         public bool IsMain { get; set; }

@@ -63,7 +63,7 @@ public class UserController : ControllerBase
             LoggedIn = false
         };
 
-        var result = await _userManager.CreateAsync(user, dto.Password);
+        var result = await _userManager.CreateAsync(user, dto.Password!);
 
         if (!result.Succeeded)
         {
@@ -90,7 +90,7 @@ public class UserController : ControllerBase
     [Authorize]
     public async Task<ActionResult<UserDto>> GetCurrentUser()
     {
-        var username = User.Identity.Name;
+        var username = User?.Identity?.Name;
 
         if (string.IsNullOrEmpty(username))
         {
