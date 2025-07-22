@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect, createContext} from "react";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CreatedWorkoutContext = createContext();
 
@@ -10,7 +11,7 @@ export function CreatedWorkoutProvider({children}) {
         async function fetchAllWorkouts() {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch("http://localhost:5282/api/workouts/", {
+                const response = await fetch(`${API_URL}/api/workouts/`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

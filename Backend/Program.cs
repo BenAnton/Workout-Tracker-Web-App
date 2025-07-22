@@ -19,7 +19,7 @@ builder.Configuration.AddEnvironmentVariables();
 
 string? jwtKey = builder.Configuration["JWT__KEY"];
 
-// Add PostgreSql context
+// Add PostgresSql context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options
         .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
@@ -27,7 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         .LogTo(Console.WriteLine, LogLevel.Information)
 );
 
-// Use custom user model for identity management + store user info in PostgreSQL
+// Use custom user model for identity management + store user info in PostgresSQL
 builder
     .Services.AddIdentity<User, IdentityRole<int>>()
     .AddEntityFrameworkStores<AppDbContext>()
@@ -59,6 +59,8 @@ builder
             ),
         };
     });
+
+
 
 // // Configuration of cookies
 // builder.Services.ConfigureApplicationCookie(options =>
@@ -113,6 +115,7 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+
 // Adding the WGER api data
 using (var scope = app.Services.CreateScope())
 {
@@ -125,6 +128,36 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+// Apply migrations automatically on startup
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    var retries = 5;
+    var delay = TimeSpan.FromSeconds(5);
+
+    for (int i = 0; i < retries; i++)
+    {
+        try
+        {
+            Console.WriteLine("Attempting DB Migration...");
+            context.Database.Migrate();
+            Console.WriteLine("Database migrations applied successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Attempt {i + 1} failed to apply migrations: {ex.Message}");
+            if (i == retries - 1) throw;
+            Thread.Sleep(delay);
+        }
+    }
+}
+
+Console.WriteLine("=== CONNECTION STRING DEBUG ===");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"Connection String: {connectionString}");
+Console.WriteLine("=== END DEBUG ===");
 
 // Middleware
 app.UseCors(MyAllowSpecificOrigins);

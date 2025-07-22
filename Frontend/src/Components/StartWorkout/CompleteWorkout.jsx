@@ -1,6 +1,7 @@
 import "./CompleteWorkout.css";
 import {useCreatedWorkouts} from "../Context/CreatedWorkoutContext";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function CompleteWorkout({
                              setActiveComponent,
@@ -72,7 +73,7 @@ function CompleteWorkout({
 
         console.log("Submitting completed workout", completed);
 
-        await fetch("http://localhost:5282/api/CompleteWorkouts", {
+        await fetch(`${API_URL}/api/CompleteWorkouts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

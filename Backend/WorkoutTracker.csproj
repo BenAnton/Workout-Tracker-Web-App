@@ -23,4 +23,10 @@
     <EmbeddedResource Remove="Tests/**" />
     <None Remove="Tests/**" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Migrations\**\*.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

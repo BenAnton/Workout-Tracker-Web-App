@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import ExerciseCard from "./ExerciseCard";
 import "./ExerciseFilter.css";
 import AddExercise from "./AddExercise";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 function ExerciseFilter() {
     const [exercises, setExercises] = useState([]);
@@ -22,7 +22,7 @@ function ExerciseFilter() {
     useEffect(() => {
         const fetchExercises = async () => {
             try {
-                const response = await fetch("http://localhost:5282/api/exercises");
+                const response = await fetch(`${API_URL}/api/exercises`);
                 if (!response) throw new Error("Failed to fetch exercises");
 
                 const data = await response.json();

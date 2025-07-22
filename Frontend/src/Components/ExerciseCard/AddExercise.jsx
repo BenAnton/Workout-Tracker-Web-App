@@ -1,10 +1,10 @@
 import "./AddExercise.css";
 import React, {useState, useEffect} from "react";
 import {motion, AnimatePresence} from "framer-motion";
-// import ExerciseData from "../../Data/ExerciseData";
 import fetchExercises from "../../Services/Excerciseservice";
 import MuscleWorked from "../WorkoutCard/MusclesWorked";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function AddExercise({onExerciseAdded}) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -59,7 +59,7 @@ function AddExercise({onExerciseAdded}) {
         };
 
         try {
-            const response = await fetch("http://localhost:5282/api/exercises", {
+            const response = await fetch(`${API_URL}/api/exercises`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CompletedWorkoutContext = createContext();
 
@@ -10,33 +11,38 @@ export const CompletedWorkoutProvider = ({children}) => {
 
     const fetchCompletedWorkouts = async () => {
         try {
-            const response = await fetch(`http://localhost:5282/api/CompleteWorkouts`);
+            const response = await fetch(`${API_URL}/api/CompleteWorkouts`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
             if (!response.ok) {
-                throw new Error("Failed to fetch completed workouts");
+                throw new Error("Failed to add completed workouts");
             }
-            const data = await response.json();
-            setCompletedWorkouts(data);
+            const workouts = await response.json();
+            setCompletedWorkouts(workouts);
         } catch (error) {
             console.error("Error fetching completed workouts", error);
         }
     };
-
+    
     const addCompletedWorkout = async (workout) => {
         try {
-            const response = await fetch(`http://localhost:5282/api/CompleteWorkouts`, {
+            const response = await fetch(`${API_URL}/api/CompleteWorkouts`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(workout),
             });
-            if (!response.ok) {
+            if(!response.ok) {
                 throw new Error("Failed to add completed workouts");
             }
             const newWorkout = await response.json();
             setCompletedWorkouts((prev) => [...prev, newWorkout]);
         } catch (error) {
-            console.error("Error adding new workout", error);
+            console.error("Error adding completed workouts", error);
         }
     };
 
@@ -45,7 +51,7 @@ export const CompletedWorkoutProvider = ({children}) => {
     }, []);
 
     return (
-        <CompletedWorkoutContext.Provider value={{completedWorkouts, addCompletedWorkout}}>
+        <CompletedWorkoutContext.Provider value={{completedWorkouts, addCompletedWorkout, fetchCompletedWorkouts}}>
             {children}
         </CompletedWorkoutContext.Provider>
     );

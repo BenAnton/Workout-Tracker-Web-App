@@ -1,7 +1,7 @@
 import {useState, useContext} from "react";
 import {UserContext} from "../Context/UserContext";
 import "./SingUp-Form.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 function SignupForm() {
     const [username, setUsername] = useState("");
@@ -13,7 +13,7 @@ function SignupForm() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:5282/api/auth/login", {
+            const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import defaultImg from "../../Assets/Images/defaultExImg.webp";
 import React, {useState} from "react";
 import EditExercise from "./EditExercise";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function ExerciseCard({exercise, onDelete}) {
     const [editing, setEditing] = useState(false);
@@ -17,7 +18,7 @@ function ExerciseCard({exercise, onDelete}) {
 
         try {
             const response = await fetch(
-                `http://localhost:5282/api/exercises/${exercise.id}`,
+                `${API_URL}/api/exercises/${exercise.id}`,
                 {
                     method: "DELETE",
                 }

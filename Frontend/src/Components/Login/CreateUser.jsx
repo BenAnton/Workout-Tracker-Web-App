@@ -1,6 +1,7 @@
 import "../Login/CreateUser.css";
 import React, {useState} from "react";
 import PropTypes from "prop-types";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function CreateUser({setEdit}) {
     const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ function CreateUser({setEdit}) {
         };
 
         try {
-            const response = await fetch("http://localhost:5282/api/auth/register", {
+            const response = await fetch(`${API_URL}/api/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

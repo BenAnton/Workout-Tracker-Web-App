@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect} from "react";
 import PropTypes from "prop-types";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const UserContext = createContext(null);
 
@@ -10,7 +10,7 @@ export function UserProvider({children}) {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            fetch("http://localhost:5282/api/users/me", {
+            fetch(`${API_URL}/api/users/me`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,

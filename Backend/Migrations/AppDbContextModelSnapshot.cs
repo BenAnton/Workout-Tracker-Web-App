@@ -167,15 +167,12 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("HeaviestWeight")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -233,7 +230,6 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("WorkoutTitle")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -253,7 +249,6 @@ namespace WorkoutTracker.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.PrimitiveCollection<List<string>>("Equipment")
@@ -261,7 +256,6 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("text[]");
 
                     b.Property<string>("ExerciseImg")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.PrimitiveCollection<List<string>>("Muscle")
@@ -269,7 +263,6 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("text[]");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
@@ -296,7 +289,7 @@ namespace WorkoutTracker.Migrations
                     b.Property<int>("CompeletedExerciseId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CompletedExerciseId")
+                    b.Property<int?>("CompletedExerciseId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Reps")
@@ -364,7 +357,6 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PersonalQ")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
@@ -410,18 +402,15 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Duration")
                         .HasColumnType("integer");
 
                     b.PrimitiveCollection<List<string>>("MusclesWorked")
-                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("UserId")
@@ -447,7 +436,6 @@ namespace WorkoutTracker.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("ExerciseName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Reps")
@@ -564,9 +552,7 @@ namespace WorkoutTracker.Migrations
                 {
                     b.HasOne("WorkoutTracker.Models.CompletedExercise", "CompletedExercise")
                         .WithMany("Sets")
-                        .HasForeignKey("CompletedExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompletedExerciseId");
 
                     b.Navigation("CompletedExercise");
                 });

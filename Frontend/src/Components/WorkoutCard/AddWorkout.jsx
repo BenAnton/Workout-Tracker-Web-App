@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {motion, AnimatePresence} from "framer-motion";
 import "./AddWorkout.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 function AddWorkout() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -20,7 +20,7 @@ function AddWorkout() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5282/api/exercises")
+        fetch(`${API_URL}/api/exercises`)
             .then(res => res.json())
             .then((data) => {
                 setExerciseOptions(data);
@@ -58,7 +58,7 @@ function AddWorkout() {
         };
 
         try {
-            const response = await fetch("http://localhost:5282/api/workouts", {
+            const response = await fetch(`${API_URL}/api/workouts`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
