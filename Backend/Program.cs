@@ -134,8 +134,8 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    var retries = 5;
-    var delay = TimeSpan.FromSeconds(5);
+    var retries = 10;
+    var delay = TimeSpan.FromSeconds(10);
 
     for (int i = 0; i < retries; i++)
     {

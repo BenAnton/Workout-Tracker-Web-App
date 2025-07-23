@@ -17,9 +17,9 @@ services:
     ports:
       - "5001:80"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - RUN_MIGRATIONS=true
-      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=mydb;Username=postgres;Password=postgres
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=Workout_Tracker_App_Podman;Username=Workout_Tracker_User;Password=UserPassword
     depends_on:
       db:
           condition: service_healthy
@@ -28,18 +28,18 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: Workout_Tracker_App_Podman
+      POSTGRES_USER: Workout_Tracker_User
+      POSTGRES_PASSWORD: UserPassword
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5431:5432"
-    healthcheck:
-        test: [ "CMD-SHELL", "pg_isready -U postgres" ]
-        interval: 10s
-        timeout: 5s
-        retries: 5
+#    healthcheck:
+#        test: [ "CMD-SHELL", "pg_isready -h localhost -p 5432 -U Workout_Tracker_User" ]
+#        interval: 10s
+#        timeout: 5s
+#        retries: 5
       
 volumes:
   pgdata:
