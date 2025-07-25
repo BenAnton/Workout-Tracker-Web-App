@@ -53,8 +53,8 @@ To run the project within the containers:
 (CLI) podman-compose up (from the proejct root folder)
 
 ### Deployment on Render
-The project is deployed using render.com, it handles CI/CD from Github. The project can be found: 
-WEBSITE URL
+The project is deployed using render.com, it handles CI/CD from Github. The project can be found:
+https://workout-frontend-4ktp.onrender.com
 
 I have set up a test user if anyone would like to have a look, the following credentials should allow you to see: 
 * Saved workouts
