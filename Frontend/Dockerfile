@@ -1,7 +1,7 @@
 FROM node:18 AS builder
 WORKDIR /app
 
-ARG VITE_API_URL=http://backend:80
+ARG VITE_API_URL=https://workout-backend-697o.onrender.com
 ENV VITE_API_URL=$VITE_API_URL
 
 COPY package*.json ./
