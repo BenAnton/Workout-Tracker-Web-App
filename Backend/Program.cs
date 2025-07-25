@@ -88,7 +88,8 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins(
                 "http://localhost:3000",
-                "http://frontend:80"
+                "http://frontend:80",
+                "https://workout-frontend-4ktp.onrender.com"
  
                 )
                 .AllowAnyHeader().AllowAnyMethod();

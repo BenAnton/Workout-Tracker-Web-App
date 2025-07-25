@@ -34,6 +34,7 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * PostgresSQL (relational database)
 * Entity Framework Core (ORM)
 * JWT authentication (secure login)
+* Podman (Containerisation)
 
 ### Also Used:
 
@@ -41,6 +42,27 @@ A web application for viewing exercises, creating and tracking workouts and moni
 * Context API
 * CSS
 * ASP.NET Identity
+
+### Containerisation with Podman
+* A docker-compose.yml seperated the project into three containers:
+* Frontend
+* Backend
+* Database
+
+To run the project within the containers:
+(CLI) podman-compose up (from the proejct root folder)
+
+### Deployment on Render
+The project is deployed using render.com, it handles CI/CD from Github. The project can be found: 
+WEBSITE URL
+
+I have set up a test user if anyone would like to have a look, the following credentials should allow you to see: 
+* Saved workouts
+* Workout History
+* Dashboard Stats
+
+Username: TestUser123  
+Password: TestUser123!
 
 ### Testing
 
