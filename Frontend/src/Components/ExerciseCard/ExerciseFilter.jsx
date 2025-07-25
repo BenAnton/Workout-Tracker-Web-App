@@ -4,6 +4,7 @@ import "./ExerciseFilter.css";
 import AddExercise from "./AddExercise";
 const API_URL = import.meta.env.VITE_API_URL;
 
+
 function ExerciseFilter() {
     const [exercises, setExercises] = useState([]);
     const [loading, setLoading] = useState(true);

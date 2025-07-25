@@ -11,6 +11,7 @@ using WorkoutTracker.Models;
 using WorkoutTracker.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 
 // Load JWT key from .env file
 // DotEnv.Load();
@@ -62,26 +63,6 @@ builder
 
 
 
-// // Configuration of cookies
-// builder.Services.ConfigureApplicationCookie(options =>
-// {
-//     options.LoginPath = "/api/account/login";
-//     options.LogoutPath = "/api/account/logout";
-//     options.ExpireTimeSpan = TimeSpan.FromDays(7);
-//     options.SlidingExpiration = true;
-
-//     options.Events.OnRedirectToLogin = context =>
-//     {
-//         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-//         return Task.CompletedTask;
-//     };
-
-//     options.Events.OnRedirectToAccessDenied = context =>
-//     {
-//         context.Response.StatusCode = StatusCodes.Status403Forbidden;
-//         return Task.CompletedTask;
-//     };
-// });
 
 // Add controllers and JSON options
 builder
@@ -105,10 +86,16 @@ builder.Services.AddCors(options =>
         name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+            policy.WithOrigins(
+                "http://localhost:3000",
+                "http://frontend:80"
+ 
+                )
+                .AllowAnyHeader().AllowAnyMethod();
         }
     );
 });
+
 
 // Swagger/OpenAPI
 builder.Services.AddOpenApi();
@@ -116,12 +103,7 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 
-// Adding the WGER api data
-using (var scope = app.Services.CreateScope())
-{
-    var wgerapi = scope.ServiceProvider.GetRequiredService<WgerAPI>();
-    await wgerapi.GetWgerAPI();
-}
+
 
 // Use swagger if in development
 if (app.Environment.IsDevelopment())
@@ -144,6 +126,7 @@ using (var scope = app.Services.CreateScope())
             Console.WriteLine("Attempting DB Migration...");
             context.Database.Migrate();
             Console.WriteLine("Database migrations applied successfully.");
+            break;
         }
         catch (Exception ex)
         {
@@ -158,6 +141,16 @@ Console.WriteLine("=== CONNECTION STRING DEBUG ===");
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Console.WriteLine($"Connection String: {connectionString}");
 Console.WriteLine("=== END DEBUG ===");
+
+
+// Adding the WGER api data
+using (var scope = app.Services.CreateScope())
+{
+    var wgerapi = scope.ServiceProvider.GetRequiredService<WgerAPI>();
+    await wgerapi.GetWgerAPI();
+}
+
+
 
 // Middleware
 app.UseCors(MyAllowSpecificOrigins);

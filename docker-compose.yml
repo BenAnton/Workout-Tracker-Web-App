@@ -5,10 +5,13 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:5001
     ports:
       - "3000:80"
+  
     depends_on:
-      - backend
+    - backend
 
   backend:
     build:
@@ -20,9 +23,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - RUN_MIGRATIONS=true
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=Workout_Tracker_App_Podman;Username=Workout_Tracker_User;Password=UserPassword
-    depends_on:
-      db:
-          condition: service_healthy
+#    depends_on:
+#      db:
+#          condition: service_healthy
 
 
   db:
