@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ab46a0f56d31f11191ef60b2e291e11c93ed622")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b068350bd2db99ed71bb47ccecd6b6989f0900f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkoutTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
