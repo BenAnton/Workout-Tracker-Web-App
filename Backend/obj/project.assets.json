@@ -3359,11 +3359,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/WorkoutTracker.csproj",
+      "projectUniqueName": "/Users/benanton/Desktop/Workout-Tracker/Backend/WorkoutTracker.csproj",
       "projectName": "WorkoutTracker",
-      "projectPath": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/WorkoutTracker.csproj",
+      "projectPath": "/Users/benanton/Desktop/Workout-Tracker/Backend/WorkoutTracker.csproj",
       "packagesPath": "/Users/benanton/.nuget/packages/",
-      "outputPath": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/obj/",
+      "outputPath": "/Users/benanton/Desktop/Workout-Tracker/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/benanton/.nuget/NuGet/NuGet.Config"
@@ -3372,7 +3372,6 @@
         "net9.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3391,7 +3390,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -3439,6 +3438,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[9.0.11, 9.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.11, 9.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3447,7 +3460,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/benanton/.dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

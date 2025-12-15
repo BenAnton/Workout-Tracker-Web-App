@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x5khQuY/5Ds=",
+  "dgSpecHash": "lFMmZXeFCCI=",
   "success": true,
-  "projectFilePath": "/Users/benanton/RiderProjects/Workout-Tracker-Web-App2/Backend/WorkoutTracker.csproj",
+  "projectFilePath": "/Users/benanton/Desktop/Workout-Tracker/Backend/WorkoutTracker.csproj",
   "expectedPackageFiles": [
     "/Users/benanton/.nuget/packages/dotenv.net/3.2.1/dotenv.net.3.2.1.nupkg.sha512",
     "/Users/benanton/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
@@ -60,7 +60,10 @@
     "/Users/benanton/.nuget/packages/system.reflection.metadata/7.0.0/system.reflection.metadata.7.0.0.nupkg.sha512",
     "/Users/benanton/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/benanton/.nuget/packages/system.text.json/9.0.6/system.text.json.9.0.6.nupkg.sha512",
-    "/Users/benanton/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
+    "/Users/benanton/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
+    "/Users/benanton/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
+    "/Users/benanton/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.11/microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512",
+    "/Users/benanton/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.11/microsoft.netcore.app.host.osx-arm64.9.0.11.nupkg.sha512"
   ],
   "logs": []
 }
